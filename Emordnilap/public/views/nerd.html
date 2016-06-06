@@ -1,11 +1,18 @@
 <!-- public/views/nerd.html -->
 
 <div class="jumbotron text-center">
-    <h2>Here is where you can Enter some Palindromes</h2>
+    <h2>Here is where you can enter some Palindromes</h2>
+
+    <input type="text" ng-model="userEntry" placeholder="ex: 'Race fast safe car'">
+    
+    <button ng-click="check(userEntry)">Submit Tim bus</button>
+
+    <p>{{ tagline }}</p>
+
+    <p>{{ listpalindromes }}</p>
 
 
-
-    <form name='palenForm' ng-submit="addNerd()" novalidate>
+<!--     <form name='palenForm' ng-submit="addNerd()" novalidate>
       <input name='nerd' type="text"
         ng-model="nerd.text"
         placeholder="ex: 'Race fast safe car'" required
@@ -14,14 +21,8 @@
       <button type="submit" ng-disabled='palenForm.$invalid'>
         Submit Tim bus
       </button>
-    </form>
-
-    <p>{{ tagline }}</p>
-    <p>{{ successprize }}</p>
-
-<!--     <div ng-show='palenForm.link.$error.url && palenForm.$dirty' class="message">
-      <h2>Hit tim bus when done</h2>
-    </div> -->
+    </form> -->
 
 
+    <!-- <p>{{ successprize }}</p> -->
 </div>
