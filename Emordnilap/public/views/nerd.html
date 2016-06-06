@@ -5,12 +5,14 @@
 
     <input type="text" ng-model="userEntry" placeholder="ex: 'Race fast safe car'">
 
-    <button ng-click="check(userEntry)">Tim bus!</button>
+    <button ng-click="check(userEntry)">Submit Tim bus!</button>
 
-    <p>{{ tagline }}</p>
+    <h3>{{ tagline }}</h3>
 
       <div ng-repeat="words in palincollection">
-        <div>{{words.entry}}</div>
+        <div>
+          <h2>{{words.entry}}</h2>
+        </div>
       </div>
     
 

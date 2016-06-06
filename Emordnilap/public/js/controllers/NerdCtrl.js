@@ -4,13 +4,11 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
 
 
-    $scope.tagline = 'TODO: comment appears on good palendrome, or try again + see yours on the home page';
 
     //add functions to test if submission is a palindrome.
     $scope.palincollection = [
-      {'entry': 'dog'},
-      {'entry': 'cat'},
-      {'entry': 'cccccc'}
+      {'entry': 'Madem Im Adam'},
+      {'entry': 'Racecar'}
     ]
 
     //checks entry - returns true or false
@@ -20,21 +18,30 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       return word === arr;
     };
 
+    var getPalinLength = function(word) {
+      word = word.replace(/\s+/g, '');
+      return word.length;
+    }
+
     //call isItPalindrome to see if enty is correct.
     $scope.check = function(){
       if (isItPalindrome($scope.userEntry)) {
-        $scope.palincollection.push(
+        $scope.palincollection.unshift(
           {'entry': $scope.userEntry}
           );
         console.log($scope.palincollection)
+        $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces..)';
+
+      } else {
+        $scope.tagline = 'oops, not quite.  Try again.'
       }
+    
 
-
-
-      //TODO: find a way to empty entry field
+      $scope.userEntry = '';
     };
 
 
+    // $scope.tagline = 'TODO: comment appears on good palendrome, or try again + see yours on the home page';
 
 
 
