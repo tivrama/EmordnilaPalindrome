@@ -13,6 +13,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       {'entry': 'cccccc'}
     ]
 
+    //checks entry - returns true or false
     var isItPalindrome = function(word) {
       word = word.toLowerCase().replace(/\s+/g, '');
       var arr = word.split('').reverse().join('');
@@ -27,12 +28,11 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
           );
         console.log($scope.palincollection)
       }
+
+
+
       //TODO: find a way to empty entry field
-
     };
-
-
-    $scope.listpalindromes = 'hello';
 
 
 
