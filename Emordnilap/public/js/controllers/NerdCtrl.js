@@ -25,18 +25,26 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
     //call isItPalindrome to see if enty is correct.
     $scope.check = function(){
-      if (isItPalindrome($scope.userEntry)) {
+      if (getPalinLength($scope.userEntry) < 2) {
+        $scope.tagline = 'oops, not quite.  Try again.'
+      }
+
+      else if (isItPalindrome($scope.userEntry)) {
         $scope.palincollection.unshift(
           {'entry': $scope.userEntry}
           );
         console.log($scope.palincollection)
         $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces..)';
 
+        //if over 15 letters, give a youtube prize.  
+          // if (getPalinLength($scope.userEntry) > 15) {
+          //   $scope.prize = <iframe width="420" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4" frameborder="0" allowfullscreen></iframe>;
+          // }
+
       } else {
         $scope.tagline = 'oops, not quite.  Try again.'
       }
     
-
       $scope.userEntry = '';
     };
 
