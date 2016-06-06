@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > EmordnilaPalindromE
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > For those with a backwards way of seeing things
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This is a list of publicly submitted palindromes.  Users can submit entries.  If it is a palindrome, it will be displayed on the main page.  
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > How do I know if it is a palindrome?  Sometimes spaces of capitals can make not instantly obvious.   
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > No muss, no fuss, no login.  Just test it out.  If it is a palindrome, it will be submitted on the site.  
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Is it a palindrome?  Just tim bus it on Emordnilapp. 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Di on cntrl f on the main page to see if it is there.  If not, go to the tim bus page and tim bus you entry.  If it is a palindrome, then your entry will appear on the main page.  Thanks for contributing!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Race fast safe car!"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Try to break this app!  See just how long a palinrome has to be, before we just can't take it amymore!
