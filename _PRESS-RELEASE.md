@@ -35,10 +35,16 @@ Once the project moves into development, the press release can be used as a touc
   > Is it a palindrome?  Just tim bus it on Emordnilapp. 
 
 ## How to Get Started ##
-  > Di on cntrl f on the main page to see if it is there.  If not, go to the tim bus page and tim bus you entry.  If it is a palindrome, then your entry will appear on the main page.  Thanks for contributing!
+  > Do a cntrl f on the main page to see if your palindrome is there.  If not, go to the tim bus page and tim bus you entry.  If it is a palindrome, then your entry will appear on the main page.  Thanks for contributing!
 
 ## Customer Quote ##
   > "Race fast safe car!"
 
 ## Closing and Call to Action ##
   > Try to break this app!  See just how long a palinrome has to be, before we just can't take it amymore!
+
+## Tasks list ##
+	> Set up the environment
+	> First work on front end.  Get it working.  Palindrome tests will be done on front end.  
+	> Send entries to server.  
+	> Enter entries onto server.

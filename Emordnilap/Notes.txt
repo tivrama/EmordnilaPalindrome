@@ -1,0 +1,10 @@
+All pelindrome testing to be done on client side.
+
+if passes, then:
+	- submit to server to go in database
+	- display sucess + number of letters (points)
+	- if more than 15 letters, API call to youtube and auto play BOB
+
+YouTube address https://www.googleapis.com/youtube/v3
+YouTube API Key 'Browser key 1'
+YouTube credentials AIzaSyBKjnqe_RFRNAt1WggGZLM7gZTaXz2uj_0

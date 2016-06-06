@@ -1,0 +1,20 @@
+{
+  "name": "emordnilap",
+  "version": "1.0.0",
+  "description": "palindrome",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "palindrome"
+  ],
+  "author": "joel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.4.19"
+  }
+}
