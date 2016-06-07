@@ -14,6 +14,11 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
     word = word.toLowerCase().replace(/[\s`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    for (var i = 0; i < word.length; i++) {
+      if (word[i] === word[i+1] && word[i] === word[i+2]) {
+        return false;
+      }
+    }
     var arr = word.split('').reverse().join('');
     return word === arr;
   };
@@ -43,7 +48,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       $scope.palincollection.unshift(
         {'entry': $scope.userEntry}
         );
-      $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces..)';
+      $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
 
         //send submission to server
         addNerd();

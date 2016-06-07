@@ -29,41 +29,26 @@ var Nerd = require('./models/nerd');
         app.post('/api/nerds', function(req, res) {
             // use mongoose save current nerd to db
             console.log('INPUT INSIDE SERVER POST!!: ', req.body)
-            new Nerd({
-            name : {type : req.body}
-            })
-            .save(function(err, palindrome) {
+            var userEntry = new Nerd({
 
-                if (err) {
-                    res.send(err);
-                    console.log('Fail saving to server');
-                } else {
-                   res.send('Success pinging post to server!'); 
-                   console.log('Success saving to server');
-                }
+            name: req.body.entry
 
             });
+            userEntry.save(function(err, resp) {
+                if (err) {
+                    res.send(err);
+                    console.log(err);
+                    console.log('Fail saving to server');
+                } else {
+                   res.send({message:'the palindrome has been saved'}); 
+                    console.log('Success saving to server');
+                }
+
+            });  //add next() function??
         });
 
 
-// var Schema = new mongoose.Schema({
-//       _id    : String,
-//       name: String,
-//       age   : Number
-// });
-
-// var user = mongoose.model('emp', Schema);
-
-//     app.post('/new', function(req, res){
-//       new user({
-//         _id    : req.body.email,
-//         name: req.body.name,
-//         age   : req.body.age        
-//       }).save(function(err, doc){
-//         if(err) res.json(err);
-//         else    res.send('Successfully inserted!');
-//       });
-//     });        
+       
         // route to handle delete (app.delete)
 
 
