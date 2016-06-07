@@ -24,36 +24,25 @@ var Nerd = require('./models/nerd');
         });
 
 
-        app.get('/api/nerds', function(req, res) {
-            // use mongoose to get all nerds in the database
-            Nerd.find(function(err, nerds) {
-
-                // if there is an error retrieving, send the error. 
-                                // nothing after res.send(err) will execute
-                if (err)
-                    res.send(err);
-
-                res.json(nerds); // return all nerds in JSON format
-            });
-        });
 
         // route to handle creating (app.post)
-        // app.post('/api/nerds', function(req, res) {
-        //     // use mongoose save current nerd to db
-        //     // console.log(req.body.text);
-        //     new Nerd({
-        //     name : {type : req.body.text}
-        //     })
-        //     .save(function(err, palindrome) {
+        app.post('/api/nerds', function(req, res) {
+            // use mongoose save current nerd to db
+            console.log('INSIDE SERVER POST: HELLO!');
+            // console.log(req.body.text);
+            new Nerd({
+            name : {type : req.body.text}
+            })
+            .save(function(err, palindrome) {
 
-        //         if (err) {
-        //             res.send(err);
-        //         } else {
-        //            res.send('Successfully inserted!'); 
-        //         }
+                if (err) {
+                    res.send(err);
+                } else {
+                   res.send('Success pinging post to server!'); 
+                }
 
-        //     });
-        // });
+            });
+        });
 
 
 // var Schema = new mongoose.Schema({
