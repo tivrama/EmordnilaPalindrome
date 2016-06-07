@@ -7,19 +7,19 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
   //add functions to test if submission is a palindrome.
   $scope.palincollection = [
-    {'entry': 'Madem Im Adam'},
+    {'entry': "Madam I'm Adam"},
     {'entry': 'Racecar'}
   ]
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
-    word = word.toLowerCase().replace(/\s+/g, '');
+    word = word.toLowerCase().replace(/[\s`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     var arr = word.split('').reverse().join('');
     return word === arr;
   };
 
   var getPalinLength = function(word) {
-    word = word.replace(/\s+/g, '');
+    word = word.replace(/[\s`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     return word.length;
   }
 

@@ -28,19 +28,18 @@ var Nerd = require('./models/nerd');
         // route to handle creating (app.post)
         app.post('/api/nerds', function(req, res) {
             // use mongoose save current nerd to db
-            console.log('Input Palindrome!!: ', req.body)
-            console.log('INSIDE SERVER POST: HELLO!');
-            // console.log(req.body);
-            // console.log(req.body.text);
+            console.log('INPUT INSIDE SERVER POST!!: ', req.body)
             new Nerd({
             name : {type : req.body}
             })
             .save(function(err, palindrome) {
 
                 if (err) {
-                    res.send('HELP!!!!!!');
+                    res.send(err);
+                    console.log('Fail saving to server');
                 } else {
                    res.send('Success pinging post to server!'); 
+                   console.log('Success saving to server');
                 }
 
             });
