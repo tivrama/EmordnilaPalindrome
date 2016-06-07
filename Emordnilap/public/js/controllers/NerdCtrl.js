@@ -47,14 +47,14 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
         );
       $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
 
+      if (getPalinLength($scope.userEntry) > 15) {
+        $scope.prize = 'That is over 20 letters!  Your palendrome is appended to to the main page!';
+      }
+
         //send submission to server
         addNerd();
 
 
-      //if over 15 letters, give a youtube prize.  
-        // if (getPalinLength($scope.userEntry) > 15) {
-        //   $scope.prize = <iframe width="420" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4" frameborder="0" allowfullscreen></iframe>;
-        // }
     //Not a palindrome, try again
     } else {
       $scope.tagline = 'oops, not quite.  Try again.'
@@ -78,6 +78,12 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
 
 //----------------------------
+      // if over 15 letters, give a youtube prize.  
+    // if (getPalinLength($scope.userEntry) > 15) {
+    //   $scope.prize = <iframe width="420" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4" frameborder="0" allowfullscreen></iframe>;
+    // }
+
+
     // $scope.successprize = 'TODO: API call to play BOB video on successful submission over 15 letters';
   // $http.get("http://www.omdbapi.com/?t=" + $scope.search + "&tomatoes=true&plot=full")
   // .then(function(response)

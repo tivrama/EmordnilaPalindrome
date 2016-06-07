@@ -12,6 +12,7 @@
   "author": "joel",
   "license": "ISC",
   "dependencies": {
+    "angular-youtube-embed": "^1.2.0",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "method-override": "^2.3.6",
