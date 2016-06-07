@@ -12,7 +12,7 @@ var Nerd = require('./models/nerd');
         // api route
         app.get('/api/nerds', function(req, res) {
             // use mongoose to get all nerds in the database
-            console.log('INSIDE GET!!!')
+            // console.log('INSIDE GET!!!')
 
             Nerd.find(function(err, nerds) {
 
@@ -40,13 +40,13 @@ var Nerd = require('./models/nerd');
                 if (err) {
                     res.send(err);
                     console.log(err);
-                    console.log('Fail saving to server');
+                    // console.log('Fail saving to server');
                 } else {
                    res.send({message:'the palindrome has been saved'}); 
-                    console.log('Success saving to server');
+                    // console.log('Success saving to server');
                 }
 
-            });  //add next() function??
+            });
         });
 
 

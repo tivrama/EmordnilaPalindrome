@@ -15,10 +15,13 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Ner
         thing = dataResponse;
         // $scope.servercollection.unshift(dataResponse);
     }).then(function(hello) {
-        for (var i = 0; i < 10; i++) {
-        	$scope.servercollection.unshift(
-        		{'entry': hello.data[i].name}
-        		);
+    		var end = hello.data.length-1;
+        for (var i = end; $scope.servercollection.length < 10; i--) {
+        	if(hello.data[i].name.length > 15) {
+	        	$scope.servercollection.push(
+	        		{'entry': hello.data[i].name}
+	        		);
+        	}
         }
     });
   };
