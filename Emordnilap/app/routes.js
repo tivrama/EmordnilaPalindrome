@@ -12,6 +12,8 @@ var Nerd = require('./models/nerd');
         // api route
         app.get('/api/nerds', function(req, res) {
             // use mongoose to get all nerds in the database
+            console.log('INSIDE GET!!!')
+
             Nerd.find(function(err, nerds) {
 
                 // if there is an error retrieving, send the error. 
@@ -28,7 +30,7 @@ var Nerd = require('./models/nerd');
         // route to handle creating (app.post)
         app.post('/api/nerds', function(req, res) {
             // use mongoose save current nerd to db
-            console.log('INPUT INSIDE SERVER POST!!: ', req.body)
+            // console.log('INPUT INSIDE SERVER POST!!: ', req.body)
             var userEntry = new Nerd({
 
             name: req.body.entry

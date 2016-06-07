@@ -6,10 +6,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
 
   //add functions to test if submission is a palindrome.
-  $scope.palincollection = [
-    {'entry': "Madam I'm Adam"},
-    {'entry': 'Racecar'}
-  ]
+  $scope.palincollection = [];
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
