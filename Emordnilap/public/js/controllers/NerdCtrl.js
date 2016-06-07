@@ -23,9 +23,9 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
     return word.length;
   }
 
-  $scope.nerd = {'entry': $scope.userEntry};
+
   var addNerd = function () {
-    Nerd.create($scope.nerd)
+    Nerd.create({'entry': $scope.userEntry})
       .catch(function (err) {
         console.log(err);
       });
