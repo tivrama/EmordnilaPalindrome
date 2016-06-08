@@ -17,7 +17,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Ner
     }).then(function(hello) {
     		var end = hello.data.length-1;
         for (var i = end; $scope.servercollection.length < 10; i--) {
-        	if(hello.data[i].name.length > 15) {
+        	if(hello.data[i].name.length > 20) {
 	        	$scope.servercollection.push(
 	        		{'entry': hello.data[i].name}
 	        		);

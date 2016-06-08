@@ -1,5 +1,5 @@
 // public/js/controllers/NerdCtrl.js
-angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd) {
+angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
 
 
 
@@ -10,7 +10,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
-    word = word.toLowerCase().replace(/[\s`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    word = word.toLowerCase().replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     for (var i = 0; i < word.length; i++) {
       if (word[i] === word[i+1] && word[i] === word[i+2]) {
         return false;
@@ -21,9 +21,30 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   };
 
   var getPalinLength = function(word) {
-    word = word.replace(/[\s`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     return word.length;
   }
+
+
+  //Make API request to
+  // var areWordsForReal = function(words) {
+  //   var checker = true;
+
+  //   var wordList = words.split(' ');
+
+  //   for (var i = 0; i < wordList.length; i++) {
+
+  //   $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+  //     .then(function(response) {
+  //         $scope.myWelcome = response.data;
+  //         console.log($scope.myWelcome);
+  //     });
+      
+
+  //   }
+  //   return checker;
+  // };
+
 
 
   var addNerd = function () {
@@ -48,7 +69,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
 
       if (getPalinLength($scope.userEntry) > 15) {
-        $scope.prize = 'That is over 20 letters!  Your palendrome is appended to to the main page!';
+        $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
       }
 
         //send submission to server
