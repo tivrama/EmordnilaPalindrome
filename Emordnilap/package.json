@@ -2,9 +2,13 @@
   "name": "emordnilap",
   "version": "1.0.0",
   "description": "palindrome",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "4.4.5"
   },
   "keywords": [
     "palindrome"
@@ -12,7 +16,6 @@
   "author": "joel",
   "license": "ISC",
   "dependencies": {
-    "angular-youtube-embed": "^1.2.0",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "method-override": "^2.3.6",

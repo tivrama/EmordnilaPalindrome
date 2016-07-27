@@ -26,25 +26,42 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   }
 
 
-  //Make API request to
-  // var areWordsForReal = function(words) {
-  //   var checker = true;
 
-  //   var wordList = words.split(' ');
+  var asyncMap = function(tasks, callback){
 
-  //   for (var i = 0; i < wordList.length; i++) {
+    var resultsArray = [];
+    var resultsCount = 0;
 
-  //   $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-  //     .then(function(response) {
-  //         $scope.myWelcome = response.data;
-  //         console.log($scope.myWelcome);
-  //     });
-      
+    for(var i = 0; i < tasks.length; i++){
+      (function (i) {
+        tasks[i](function (val) {
+          resultsArray[i] = val;
+          resultsCount++;
+          if(resultsCount === tasks.length){
+            callback(resultsArray);
+          }
+        });
+      })(i);
+    }
+  };
 
-  //   }
-  //   return checker;
-  // };
+  //NOTE LOOPING THROUTH ASYNC API CALLS SUCKS - TRY USING ASCYN MAP 
+  // Make API request
+  var areWordsForReal = function(words) {
+    var checker = true;
 
+    var wordList = words.split(' ');
+
+    for (var i = 0; i < wordList.length; i++) {
+
+    $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+      .then(function(response) {
+          $scope.myWelcome = response.data;
+          console.log($scope.myWelcome);
+      });
+    }
+    return checker;
+  };
 
 
   var addNerd = function () {
@@ -68,13 +85,12 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
         );
       $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
 
-      if (getPalinLength($scope.userEntry) > 15) {
+      if (getPalinLength($scope.userEntry) > 20) {
         $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
       }
 
         //send submission to server
         addNerd();
-
 
     //Not a palindrome, try again
     } else {
@@ -83,43 +99,5 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
     //reset input field
     $scope.userEntry = '';
   };
-
-
-
-
-
-//----------------------------
-  //it will go inside if statement that first varifies a true palindrome
-  //this will send submission to server.  Blow doe succescully hit the server as of june 6 am.  Do not use yet...
-
-
-
-
-
-
-
-//----------------------------
-      // if over 15 letters, give a youtube prize.  
-    // if (getPalinLength($scope.userEntry) > 15) {
-    //   $scope.prize = <iframe width="420" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4" frameborder="0" allowfullscreen></iframe>;
-    // }
-
-
-    // $scope.successprize = 'TODO: API call to play BOB video on successful submission over 15 letters';
-  // $http.get("http://www.omdbapi.com/?t=" + $scope.search + "&tomatoes=true&plot=full")
-  // .then(function(response)
-  //   { 
-  //     console.log(response.data);
-  //     $scope.tagline = response.data.Actors;
-
-  //   });
-
-
-    // $http.get("https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true")
-    // .then(function(response) {
-    //     $scope.tagline = response.data;
-    // });
-
-// "https://www.youtube.com/watch?v=JUQDzj6R3p4"
 
 });
