@@ -4,7 +4,7 @@
   "description": "palindrome",
   "main": "server.js",
   "scripts": {
-    "test": "npm test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "engines": {
@@ -15,6 +15,7 @@
   ],
   "author": "joel",
   "license": "ISC",
+
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
