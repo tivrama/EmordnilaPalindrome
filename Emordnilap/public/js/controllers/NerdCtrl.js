@@ -1,5 +1,5 @@
 // public/js/controllers/NerdCtrl.js
-angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
+angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http, $q) {
 
 
 
@@ -27,30 +27,36 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
 
 
-  var asyncMap = function(tasks, callback){
+//-------------------------------------------------------------------
+  // var asyncLoop = function(list) {
+  //   for (var i = 0; i < list.length; i++) {
+  //       (function(cntr) {
+  //           // here the value of i was passed into as the argument cntr
+  //           // and will be captured in this function closure so each
+  //           // iteration of the loop can have it's own value
+  //           asycronouseProcess(function() {
+  //               alert(cntr);
+  //           });
+  //       })(i);
+  //   }
+  // };
+//-------------------------------------------------------------------
 
-    var resultsArray = [];
-    var resultsCount = 0;
-
-    for(var i = 0; i < tasks.length; i++){
-      (function (i) {
-        tasks[i](function (val) {
-          resultsArray[i] = val;
-          resultsCount++;
-          if(resultsCount === tasks.length){
-            callback(resultsArray);
-          }
-        });
-      })(i);
-    }
-  };
-
-  //NOTE LOOPING THROUTH ASYNC API CALLS SUCKS - TRY USING ASCYN MAP 
   // Make API request
   var areWordsForReal = function(words) {
     var checker = true;
-
     var wordList = words.split(' ');
+    var numOfWords = wordList.length;
+    // Loop that returns a function with all the '.then's needed for each word send to wordnik API
+    var Qchain;
+    var makeQfunction = function(nOfw) {
+      for (var i = 0; i < nOfw; i++) {
+
+      }
+    }
+
+
+
 
     for (var i = 0; i < wordList.length; i++) {
 
@@ -60,9 +66,48 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
           console.log($scope.myWelcome);
       });
     }
+
     return checker;
   };
 
+
+
+
+var makeFunction = function(arry) {
+  var result = [];
+  for (var i = 0; i < arry.length; i++) {
+    result.push(function(x) { console.log(x)})
+  }
+  return result;
+};
+
+var test = makeFunction(['a', 'b', 'c', 'd']);
+console.log(test);
+
+console.log(test[1]);
+
+console.log(test[1]('hello world'));
+
+// var areWordsForReal = function(words) {
+
+//     var checker = true;
+
+//     var wordList = words.split(' ');
+
+//     for (var i = 0; i < wordList.length; i++) {
+
+//     $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+//       .then(function(response) {
+//           $scope.myWelcome = response.data;
+//           console.log($scope.myWelcome);
+//       });
+//     }
+
+//     return checker;
+//   };
+
+
+//-------------------------------------------------------------------
 
   var addNerd = function () {
     Nerd.create({'entry': $scope.userEntry})
