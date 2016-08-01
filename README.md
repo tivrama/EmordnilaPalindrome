@@ -1,2 +1,1 @@
-#mvp
-This is a project I completed as a student at [Telegraph Academy](http://telegraphacademy.com). This project was worked on with a pair.
+Quick easy place to check you palindromes. Just past it in (don't worry about punctuation and spaces). Entries over 20 letters will be displayed on the welcome screen.
