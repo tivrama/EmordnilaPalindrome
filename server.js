@@ -10,10 +10,10 @@ var mongoose    	 = require('mongoose'); //added later to solve error from cmd c
 // configuration ===========================================
     
 // config files
-// var db = require('./config/db');
+var db = require('./config/db');
 
-// // set our port
-// var port = process.env.PORT || 8080; 
+// set our port
+var port = process.env.PORT || 8080; 
 
 //----------------------------
 // connect to our mongoDB database 
@@ -37,42 +37,15 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public')); 
 
-
-
-
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
-var db;
-
-// Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
-
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
-});
-
-
-
-
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:8080
-// app.listen(port);               
+app.listen(port);               
 
 // App server confirmation                     
-// console.log('Palindrome app running on port: ' + port);
+console.log('Palindrome app running on port: ' + port);
 
 // expose app           
 exports = module.exports = app; 
