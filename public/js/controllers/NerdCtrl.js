@@ -43,50 +43,50 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 //-------------------------------------------------------------------
 
   // Make API request
-  var areWordsForReal = function(words) {
-    var checker = true;
-    var wordList = words.split(' ');
-    var numOfWords = wordList.length;
-    // Loop that returns a function with all the '.then's needed for each word send to wordnik API
-    var Qchain;
-    var makeQfunction = function(nOfw) {
-      for (var i = 0; i < nOfw; i++) {
+  // var areWordsForReal = function(words) {
+  //   var checker = true;
+  //   var wordList = words.split(' ');
+  //   var numOfWords = wordList.length;
+  //   // Loop that returns a function with all the '.then's needed for each word send to wordnik API
+  //   var Qchain;
+  //   var makeQfunction = function(nOfw) {
+  //     for (var i = 0; i < nOfw; i++) {
 
-      }
-    }
-
-
-
-
-    for (var i = 0; i < wordList.length; i++) {
-
-    $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-      .then(function(response) {
-          $scope.myWelcome = response.data;
-          console.log($scope.myWelcome);
-      });
-    }
-
-    return checker;
-  };
+  //     }
+  //   }
 
 
 
 
-var makeFunction = function(arry) {
-  var result = [];
-  for (var i = 0; i < arry.length; i++) {
-    result.push(function(x) { console.log(x)})
-  }
-  return result;
-};
+  //   for (var i = 0; i < wordList.length; i++) {
 
-var test = makeFunction(['a', 'b', 'c', 'd']);
-console.log(test);
+  //   $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+  //     .then(function(response) {
+  //         $scope.myWelcome = response.data;
+  //         console.log($scope.myWelcome);
+  //     });
+  //   }
 
-console.log(test[1]);
+  //   return checker;
+  // };
 
-console.log(test[1]('hello world'));
+
+
+
+// var makeFunction = function(arry) {
+//   var result = [];
+//   for (var i = 0; i < arry.length; i++) {
+//     result.push(function(x) { console.log(x)})
+//   }
+//   return result;
+// };
+
+// var test = makeFunction(['a', 'b', 'c', 'd']);
+// console.log(test);
+
+// console.log(test[1]);
+
+// console.log(test[1]('hello world'));
 
 // var areWordsForReal = function(words) {
 
