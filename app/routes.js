@@ -18,8 +18,7 @@ var Nerd = require('./models/nerd');
 
                 // if there is an error retrieving, send the error. 
                 // nothing after res.send(err) will execute
-                if (err)
-                    res.send(err);
+                if (err) {res.send(err) }
 
                 res.json(nerds); // return all nerds in JSON format
             });
