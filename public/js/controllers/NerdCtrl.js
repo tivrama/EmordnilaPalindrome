@@ -112,7 +112,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   var addNerd = function () {
     Nerd.create({'entry': $scope.userEntry})
       .catch(function (err) {
-        console.log(err);
+        console.log('Add palindrome API from client not working: ', err);
       });
   };
 
