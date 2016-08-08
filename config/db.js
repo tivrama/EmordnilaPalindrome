@@ -1,11 +1,9 @@
 // config/db.js
-  // module.exports = {
-  //   url: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/emordnilap'
-  // };
-
   module.exports = {
-    url: process.env.MONGOLAB_URI
+    url: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/emordnilap'
   };
+
+
 
 //----------------------------------------------------------------
 // FOR THIRD PARTY DB HOSTING WITH MLAB //
