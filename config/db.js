@@ -1,6 +1,4 @@
 // config/db.js
-var mlab = require('./config.js').mlab;
-
 
   module.exports = {
     url: process.env.MONGOLAB_URI || 'mongodb://localhost/emordnilap'
