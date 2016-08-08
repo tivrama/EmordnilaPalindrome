@@ -19,7 +19,6 @@
     "tests"
   ],
   "dependencies": {
-      "bootstrap": "latest",
       "font-awesome": "latest",
       "animate.css": "latest",
       "angular": "latest",
