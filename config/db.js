@@ -1,6 +1,9 @@
 // config/db.js
+process.env.MONGOLAB_URI = herokuMlab
+
+
   module.exports = {
-    uri: process.env.MONGOLAB_URI
+    url: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/emordnilap'
   };
 
 
@@ -18,9 +21,10 @@
 // };
 
 
+
 // module.exports = {
-//   // url to mongo db named foodiepal, for server to connect to
-//   url: 'mongodb://' + mlab.dbuser + ':' + mlab.dbpassword + '@ds0145295.mlab.com:145295/palindrome'
+//   // url to mongo db, for server to connect
+//   url: 'mongodb://' + mlab.dbuser + ':' + mlab.dbpassword + '@ds145415.mlab.com:45415/heroku_h31dhr65'
 // };
 
 
