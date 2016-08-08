@@ -3,7 +3,7 @@ var mlab = require('./config.js').mlab;
 
 
   module.exports = {
-    uri: process.env.MONGOLAB_URI || 'mongodb://localhost/emordnilap'
+    url: process.env.MONGOLAB_URI || 'mongodb://localhost/emordnilap'
   };
 
 // var mlab = {
