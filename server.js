@@ -11,7 +11,7 @@ var mongoose    	 = require('mongoose'); //added later to solve error from cmd c
 // configuration ===========================================
     
 // config files
-var db = require('./config/db');
+var db = require('./config/db.js');
 
 // set our port
 var port = process.env.PORT || 8080; 
@@ -21,11 +21,11 @@ var port = process.env.PORT || 8080;
 // (uncomment after establishing credentials in config/db.js)
 // mongoose.connect(db.url); 
 
-mongoose.connect(db.url, function (err, res) {
+mongoose.connect(db.uri, function (err, res) {
   if (err) {
-  console.log ('ERROR connecting to: ' + db.url + '. ' + err);
+  console.log ('ERROR connecting to: ' + db.uri + '. ' + err);
   } else {
-  console.log ('Succeeded connected to: ' + db.url);
+  console.log ('Succeeded connected to: ' + db.uri);
   }
 });
 

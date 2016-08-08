@@ -1,10 +1,10 @@
 // config/db.js
-// var mlab = require('./config.js').mlab;
+var mlab = require('./config.js').mlab;
 
 
-  // module.exports = {
-  //   url: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/emordnilap'
-  // };
+  module.exports = {
+    uri: process.env.MONGOLAB_URI || 'mongodb://localhost/emordnilap'
+  };
 
 // var mlab = {
 //   dbuser: process.env.MLAB_DBUSER,
@@ -12,10 +12,10 @@
 // };
 
 
-module.exports = {
-  // url to mongo db, for server to connect
-  url: 'mongodb://heroku_h31dhr65:8c0e9h18s1a87nlgq30urvsi6s@ds145415.mlab.com:45415/heroku_h31dhr65'
-};
+// module.exports = {
+//   // url to mongo db, for server to connect
+//   url: 'mongodb://' + mlab.dbuser + ':' + mlab.dbpassword + '@ds145415.mlab.com:45415/heroku_h31dhr65'
+// };
 
 
 
