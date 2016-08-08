@@ -1,6 +1,6 @@
 // config/db.js
   module.exports = {
-    uri: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/emordnilap'
+    uri: process.env.MONGOLAB_URI
   };
 
 
