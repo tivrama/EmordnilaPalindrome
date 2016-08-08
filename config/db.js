@@ -1,5 +1,5 @@
 // config/db.js
-process.env.MONGOLAB_URI = herokuMlab
+// process.env.MONGOLAB_URI = herokuMlab
 
 
   module.exports = {
