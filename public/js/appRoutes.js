@@ -13,6 +13,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/nerds', {
             templateUrl: 'views/nerd.html',
             controller: 'NerdController'
+        })
+
+        .when('/gallery', {
+            templateUrl: 'views/gallery.html',
+            controller: 'GalleryController'
         });
 
     $locationProvider.html5Mode(true);

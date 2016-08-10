@@ -23,13 +23,13 @@ Once the project moves into development, the press release can be used as a touc
   > For those with a backwards way of seeing things
 
 ## Summary ##
-  > This is a list of publicly submitted palindromes.  Users can submit entries.  If it is a palindrome, it will be displayed on the main page.  
+  > This is a list of publicly submitted palindromes.  Users can submit entries.  If it is a palindrome of over 20 letters, it will be displayed on the main page.  
 
 ## Problem ##
-  > How do I know if it is a palindrome?  Sometimes spaces of capitals can make not instantly obvious.   
+  > How do I know if it is a palindrome?  Sometimes spaces or capitals can make it not instantly obvious.   
 
 ## Solution ##
-  > No muss, no fuss, no login.  Just test it out.  If it is a palindrome, it will be submitted on the site.  
+  > No muss, no fuss, no login.  Just test it out.  If it is a palindrome - you will know.  If it is over 20 letters, it will be displayed on the site.  
 
 ## Quote from You ##
   > Is it a palindrome?  Just tim bus it on Emordnilapp. 

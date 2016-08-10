@@ -13,17 +13,15 @@ var Nerd = require('./models/nerd');
         app.get('/api/nerds', function(req, res) {
             // use mongoose to get all nerds in the database
             // console.log('INSIDE GET!!!')
-
             Nerd.find(function(err, nerds) {
-
                 // if there is an error retrieving, send the error. 
                 // nothing after res.send(err) will execute
-                if (err) {res.send(err) }
-
+                if (err) {
+                    res.send(err);
+                }
                 res.json(nerds); // return all nerds in JSON format
             });
         });
-
 
 
         // route to handle creating (app.post)
@@ -31,9 +29,7 @@ var Nerd = require('./models/nerd');
             // use mongoose save current nerd to db
             // console.log('INPUT INSIDE SERVER POST!!: ', req.body)
             var userEntry = new Nerd({
-
-            name: req.body.entry
-
+                name: req.body.entry
             });
             userEntry.save(function(err, resp) {
                 if (err) {
@@ -44,12 +40,10 @@ var Nerd = require('./models/nerd');
                    res.send({message:'the palindrome has been saved'}); 
                     // console.log('Success saving to server');
                 }
-
             });
         });
 
-
-       
+ 
         // route to handle delete (app.delete)
 
 

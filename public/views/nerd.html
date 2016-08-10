@@ -1,19 +1,19 @@
 <!-- public/views/nerd.html -->
 
 <div class="jumbotron text-center">
-    <h2>Here is where you can enter some Palindromes</h2>
+    <h4>Here is where you can enter some Palindromes</h4>
 
-    <input style="width: 527px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
+    <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
 
     <button ng-click="check(userEntry)" class="timbus">Submit Tim bus!</button>
 
-    <h3>{{ tagline }}</h3>
+    <h4>{{ tagline }}</h4>
 
     <div>{{ prize }}</div>
 
       <div ng-repeat="words in palincollection">
         <div>
-          <h2>{{words.entry}}</h2>
+          <h4>{{words.entry}}</h4>
         </div>
       </div>
     
