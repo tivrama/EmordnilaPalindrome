@@ -1,13 +1,13 @@
 <!-- public/views/home.html -->
 
 <div class="jumbotron text-center">
-    <h3>Welcome to</h3> 
-    <h3>EmordnilaPalindromE</h3>
 
-    <p style="font-size: 15px;">{{ tagline }}</p>
+    <h1>EmordnilaPalindromE</h1>
+
+    <p class="quote">{{ tagline }}</p>
 		<h4>Most Recept Top Entries Below!</h4>
 
-    <div ng-repeat="words in servercollection">
+    <div style="text-align: left;" ng-repeat="words in servercollection">
       <div>
         <h5>{{words.entry}}</h5>
       </div>
