@@ -1,5 +1,5 @@
 // public/js/controllers/GalleryCtrl.js
-angular.module('GalleryCtrl', []).controller('GalleryController', function($scope, Nerd) { //Add Main???
+angular.module('GalleryCtrl', []).controller('GalleryController', function($scope, Nerd) {
 
   $scope.totalcollection = [];
 

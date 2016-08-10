@@ -16,8 +16,8 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
         return false;
       }
     }
-    var arr = word.split('').reverse().join('');
-    return word === arr;
+    var drow = word.split('').reverse().join('');
+    return word === drow;
   };
 
   var getPalinLength = function(word) {
@@ -28,18 +28,18 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
 
 //-------------------------------------------------------------------
-  // var asyncLoop = function(list) {
-  //   for (var i = 0; i < list.length; i++) {
-  //       (function(cntr) {
-  //           // here the value of i was passed into as the argument cntr
-  //           // and will be captured in this function closure so each
-  //           // iteration of the loop can have it's own value
-  //           asycronouseProcess(function() {
-  //               alert(cntr);
-  //           });
-  //       })(i);
-  //   }
-  // };
+  var asyncLoop = function(list) {
+    for (var i = 0; i < list.length; i++) {
+      (function(cntr) {
+        // here the value of i was passed into as the argument cntr
+        // and will be captured in this function closure so each
+        // iteration of the loop can have it's own value
+        asycronouseProcess(function() {
+          alert(cntr);
+        });
+      })(i);
+    }
+  };
 //-------------------------------------------------------------------
 
   // Make API request
@@ -120,7 +120,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   $scope.check = function(){
     //submission must be greater than two letters
     if (getPalinLength($scope.userEntry) < 3) {
-      $scope.tagline = 'oops, not quite.  Try again.'
+      $scope.tagline = 'uh, that is less than 3 letters.  Maybe try again.'
     }
     //check if submission is a true palindrome
     else if (isItPalindrome($scope.userEntry)) {
@@ -128,14 +128,14 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       $scope.palincollection.unshift(
         {'entry': $scope.userEntry}
         );
-      $scope.tagline = 'Nice job! That is ' +getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
+      $scope.tagline = 'Nice job! That is ' + getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
 
       if (getPalinLength($scope.userEntry) > 20) {
         $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
       }
 
-        //send submission to server
-        addNerd();
+      //send submission to server
+      addNerd();
 
     //Not a palindrome, try again
     } else {
