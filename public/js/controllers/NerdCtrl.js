@@ -2,6 +2,17 @@
 angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
 
 
+  window.onload = function() {
+    $(function() {
+      if (window.location.protocol === "https:") {
+        window.location.protocol = "http";
+      }
+    });
+  };
+
+
+
+
   //add functions to test if submission is a palindrome.
   $scope.palincollection = [];
 
@@ -74,7 +85,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       })},
       function() {
         //call the rest of the Palindrom Checker function
-        console.log('cycle ended: ', checker);
+        console.log('All words are real words: ', checker);
         if (checker) { 
           finalCheck();
         } else {
