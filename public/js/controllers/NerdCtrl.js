@@ -1,19 +1,17 @@
 // public/js/controllers/NerdCtrl.js
 angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
 
+//--- Delete this once https get request is resolved -------
+  // window.onload = function() {
+  //   $(function() {
+  //     if (window.location.protocol === "https:") {
+  //       window.location.protocol = "http";
+  //     }
+  //   });
+  // };
+//--- Delete this once https get request is resolved -------
 
-  window.onload = function() {
-    $(function() {
-      if (window.location.protocol === "https:") {
-        window.location.protocol = "http";
-      }
-    });
-  };
 
-
-
-
-  //add functions to test if submission is a palindrome.
   $scope.palincollection = [];
 
   //checks entry - returns true or false
@@ -94,8 +92,6 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       }
     );
   };
-
-//-------------------------------------------------------------------
 
   var addNerd = function () {
     Nerd.create({'entry': $scope.userEntry})
