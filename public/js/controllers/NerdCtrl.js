@@ -60,7 +60,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
     var word = 0;
 
     asyncLoop(list.length, function(loop) {
-      $http.get("https://api.wordnik.com:80/v4/word.json/" + list[word] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function(result) {
+      $http.get("//api.wordnik.com:80/v4/word.json/" + list[word] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function(result) {
         console.log(result.data.examples);
         word++;
         if (!result.data.examples) {
