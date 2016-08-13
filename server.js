@@ -22,9 +22,9 @@ var port = process.env.PORT || 8080;
 
 mongoose.connect(db.url, function (err, res) {
   if (err) {
-  console.log ('ERROR connecting to: ' + db.url + '. ' + err);
+    console.log ('ERROR connecting to: ' + db.url + '. ' + err);
   } else {
-  console.log ('Succeeded connected to: ' + db.url);
+    console.log ('Succeeded connected to: ' + db.url);
   }
 });
 

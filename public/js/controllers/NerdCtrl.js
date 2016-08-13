@@ -2,9 +2,6 @@
 angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http, $q) {
 
 
-
-
-
   //add functions to test if submission is a palindrome.
   $scope.palincollection = [];
 
@@ -12,7 +9,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   var isItPalindrome = function(word) {
     word = word.toLowerCase().replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     for (var i = 0; i < word.length; i++) {
-      if (word[i] === word[i+1] && word[i] === word[i+2]) {
+      if (word[i] === word[i + 1] && word[i] === word[i + 2]) {
         return false;
       }
     }
@@ -23,89 +20,69 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     return word.length;
-  }
-
-
-
-//-------------------------------------------------------------------
-  var asyncLoop = function(list) {
-    for (var i = 0; i < list.length; i++) {
-      (function(cntr) {
-        // here the value of i was passed into as the argument cntr
-        // and will be captured in this function closure so each
-        // iteration of the loop can have it's own value
-        asycronouseProcess(function() {
-          alert(cntr);
-        });
-      })(i);
-    }
   };
-//-------------------------------------------------------------------
 
-  // Make API request
-  // var areWordsForReal = function(words) {
-  //   var checker = true;
-  //   var wordList = words.split(' ');
-  //   var numOfWords = wordList.length;
-  //   // Loop that returns a function with all the '.then's needed for each word send to wordnik API
-  //   var Qchain;
-  //   var makeQfunction = function(nOfw) {
-  //     for (var i = 0; i < nOfw; i++) {
+  var asyncLoop = function(iterations, func, callback) {
+    var index = 0;
+    var done = false;
+    var loop = {
+      next: function() {
+        if (done) {
+          return;
+        }
 
-  //     }
-  //   }
+        if (index < iterations) {
+          index++;
+          func(loop);
 
+        } else {
+          done = true;
+          callback();
+        }
+      },
 
+      iteration: function() {
+        return index - 1;
+      },
 
+      break: function() {
+        done = true;
+        callback();
+      }
+    };
+    loop.next();
+    return loop;
+  };
 
-  //   for (var i = 0; i < wordList.length; i++) {
+  $scope.check = function() {
+    var list = $scope.userEntry.split(' ');
+    var checker = true;
+    var word = 0;
 
-  //   $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-  //     .then(function(response) {
-  //         $scope.myWelcome = response.data;
-  //         console.log($scope.myWelcome);
-  //     });
-  //   }
-
-  //   return checker;
-  // };
-
-
-
-
-// var makeFunction = function(arry) {
-//   var result = [];
-//   for (var i = 0; i < arry.length; i++) {
-//     result.push(function(x) { console.log(x)})
-//   }
-//   return result;
-// };
-
-// var test = makeFunction(['a', 'b', 'c', 'd']);
-// console.log(test);
-
-// console.log(test[1]);
-
-// console.log(test[1]('hello world'));
-
-// var areWordsForReal = function(words) {
-
-//     var checker = true;
-
-//     var wordList = words.split(' ');
-
-//     for (var i = 0; i < wordList.length; i++) {
-
-//     $http.get("http://api.wordnik.com:80/v4/word.json/" + wordList[i] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-//       .then(function(response) {
-//           $scope.myWelcome = response.data;
-//           console.log($scope.myWelcome);
-//       });
-//     }
-
-//     return checker;
-//   };
-
+    asyncLoop(list.length, function(loop) {
+      $http.get("http://api.wordnik.com:80/v4/word.json/" + list[word] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function(result) {
+        console.log(result.data.examples);
+        word++;
+        if (!result.data.examples) {
+          checker = false;
+          loop.break();
+        }
+        // log the iteration
+        console.log(loop.iteration());
+        // Okay, for cycle could continue
+        loop.next();
+      })},
+      function() {
+        //call the rest of the Palindrom Checker function
+        console.log('cycle ended: ', checker);
+        if (checker) { 
+          finalCheck();
+        } else {
+          notRealWords();
+        }
+      }
+    );
+  };
 
 //-------------------------------------------------------------------
 
@@ -117,10 +94,10 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   };
 
   //call isItPalindrome to see if enty is correct.
-  $scope.check = function(){
+  var finalCheck = function() {
     //submission must be greater than two letters
     if (getPalinLength($scope.userEntry) < 3) {
-      $scope.tagline = 'uh, that is less than 3 letters.  Maybe try again.'
+      $scope.tagline = 'uh, that is too short.  Maybe try again.';
     }
     //check if submission is a true palindrome
     else if (isItPalindrome($scope.userEntry)) {
@@ -139,10 +116,14 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
     //Not a palindrome, try again
     } else {
-      $scope.tagline = 'oops, not quite.  Try again.'
+      $scope.tagline = 'oops, not quite.  Try again.';
     }
     //reset input field
     $scope.userEntry = '';
+  };
+
+  var notRealWords = function () {
+    $scope.tagline = 'mmm, you have to use real words...';
   };
 
 });
