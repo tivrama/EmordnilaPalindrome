@@ -9,6 +9,9 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   //     }
   //   });
   // };
+
+  //Or add this in Heroku env config
+  // [   force_ssl: false   ]
 //--- Delete this once https get request is resolved -------
 
 
