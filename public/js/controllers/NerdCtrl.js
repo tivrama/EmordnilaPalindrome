@@ -1,6 +1,7 @@
 // public/js/controllers/NerdCtrl.js
 angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
 
+//----------------------------------------------------------
 //--- Delete this once https get request is resolved -------
 
   window.onload = function() {
@@ -21,6 +22,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   // [   Access-Control-Allow-Methods   ]
 
 //--- Delete this once https get request is resolved -------
+//----------------------------------------------------------
 
 
   $scope.palincollection = [];
