@@ -3,13 +3,13 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
 //--- Delete this once https get request is resolved -------
 
-  // window.onload = function() {
-  //   $(function() {
-  //     if (window.location.protocol === "https:") {
-  //       window.location.protocol = "http";
-  //     }
-  //   });
-  // };
+  window.onload = function() {
+    $(function() {
+      if (window.location.protocol === "https:") {
+        window.location.protocol = "http";
+      }
+    });
+  };
 
   //Or add this in Heroku env config
   // [   force_ssl: false   ]
