@@ -2,6 +2,7 @@
 angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
 
 //--- Delete this once https get request is resolved -------
+
   // window.onload = function() {
   //   $(function() {
   //     if (window.location.protocol === "https:") {
@@ -12,6 +13,13 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
 
   //Or add this in Heroku env config
   // [   force_ssl: false   ]
+  //    or
+  // [   Access-Control-Allow-Origin: *   ]
+  //    or any of these? (not tested yet)
+  // [   Access-Control-Request-Headers   ]
+  // [   Access-Control-Allow-Origin   ]
+  // [   Access-Control-Allow-Methods   ]
+
 //--- Delete this once https get request is resolved -------
 
 
@@ -67,11 +75,13 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
   };
 
   $scope.check = function() {
-    var list = $scope.userEntry.split(' ');
+    var list = $scope.userEntry.replace(/[`~!@#$%^&*0-9()_|+\-=?;:",.<>\{\}\[\]\\\/]/gi, '');
+    list = list.split(' ');
     var checker = true;
     var word = 0;
 
     asyncLoop(list.length, function(loop) {
+      console.log('Word sent to API: ', list[word]);
       $http.get("http://api.wordnik.com:80/v4/word.json/" + list[word] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function(result) {
         console.log(result.data.examples);
         word++;
