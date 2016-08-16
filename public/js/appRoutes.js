@@ -20,10 +20,10 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'BinaryController'
         })
 
-        // .when('/genomic', {
-        //     templateUrl: 'views/gallery.html',
-        //     controller: 'GalleryController'
-        // })
+        .when('/genomic', {
+            templateUrl: 'views/genomic.html',
+            controller: 'GenomicController'
+        })
 
         .when('/gallery', {
             templateUrl: 'views/gallery.html',

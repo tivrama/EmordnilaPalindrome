@@ -1,0 +1,26 @@
+<!-- public/views/genomic.html -->
+
+<div class="jumbotron text-center">
+
+    <h1>EmordnilaPalindromE</h1>
+
+    <h3>Here is where you can test your genomic Palindromes</h3>
+
+    <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'ACCTAGGT' (complement is TGGATCCA and will be figured out for you)">
+
+    <button ng-click="checkGenome(userEntry)" class="timbus">Submit Tim bus!</button>
+
+    <h4>{{ tagline }}</h4>
+
+    <div>{{ prize }}</div>
+
+
+
+      <div ng-repeat="words in genomicCollection">
+        <div>
+          <hr class="style-two">
+          <h4>{{words.entry}}</h4>
+        </div>
+      </div>
+    
+</div>
