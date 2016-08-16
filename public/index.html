@@ -29,6 +29,17 @@
     <script src="js/app.js"></script>
 
 </head>
+
+    <script>
+      window.onload = function() {
+        $(function() {
+          if (window.location.protocol === "https:") {
+            window.location.protocol = "http";
+          }
+        });
+      };
+    </script>
+
 <body ng-app="emordnilap" ng-controller="NerdController">
 <div class="container">
 
