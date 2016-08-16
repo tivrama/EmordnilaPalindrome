@@ -1,0 +1,26 @@
+<!-- public/views/binary.html -->
+
+<div class="jumbotron text-center">
+
+    <h1>EmordnilaPalindromE</h1>
+
+    <h3>Here is where you can test your binary Palindromes</h3>
+
+    <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: '101101' (decimal 45), and the longer, the more points!">
+
+    <button ng-click="checkBits(userEntry)" class="timbus">Submit Tim bus!</button>
+
+    <h4>{{ tagline }}</h4>
+
+    <div>{{ prize }}</div>
+
+
+
+      <div ng-repeat="words in bitcollection">
+        <div>
+        <hr class="style-two">
+          <h4>{{words.entry}}</h4>
+        </div>
+      </div>
+    
+</div>

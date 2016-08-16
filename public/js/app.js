@@ -1,2 +1,2 @@
 // public/js/app.js
-angular.module('emordnilap', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'GalleryCtrl', 'NerdService']);
+angular.module('emordnilap', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'BinaryCtrl', 'GalleryCtrl', 'NerdService']);

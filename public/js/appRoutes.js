@@ -15,6 +15,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'NerdController'
         })
 
+        .when('/binary', {
+            templateUrl: 'views/binary.html',
+            controller: 'BinaryController'
+        })
+
+        // .when('/genomic', {
+        //     templateUrl: 'views/gallery.html',
+        //     controller: 'GalleryController'
+        // })
+
         .when('/gallery', {
             templateUrl: 'views/gallery.html',
             controller: 'GalleryController'

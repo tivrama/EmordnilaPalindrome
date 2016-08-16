@@ -4,7 +4,7 @@
 
     <h1>EmordnilaPalindromE</h1>
 
-    <h3>Here is where you can enter some Palindromes</h3>
+    <h3>Here is where you can enter some letter based Palindromes</h3>
 
     <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
 
@@ -14,10 +14,9 @@
 
     <div>{{ prize }}</div>
 
-    <hr class="style-two">
-
       <div ng-repeat="words in palincollection">
         <div>
+          <hr class="style-two">
           <h4>{{words.entry}}</h4>
         </div>
       </div>
