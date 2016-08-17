@@ -6,7 +6,7 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose    	 = require('mongoose'); //added later to solve error from cmd console
-
+var cors = require('cors');
 // configuration ===========================================
     
 // config files
@@ -29,7 +29,7 @@ mongoose.connect(db.url, function (err, res) {
 });
 
 
-
+app.use(cors());
 //----------------------------
 
 // get all data/stuff of the body (POST) parameters

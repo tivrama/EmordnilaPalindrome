@@ -77,6 +77,9 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
     return loop;
   };
 
+
+
+
   $scope.check = function() {
     var list = $scope.userEntry.replace(/[`~!@#$%^&*0-9()_|+\-=?;:",.<>\{\}\[\]\\\/]/gi, '');
     list = list.split(' ');
