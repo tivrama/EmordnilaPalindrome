@@ -1,11 +1,11 @@
 // public/js/controllers/GalleryCtrl.js
-angular.module('GalleryCtrl', []).controller('GalleryController', function($scope, Nerd) {
+angular.module('GalleryCtrl', []).controller('GalleryController', function($scope, Palindrome) {
 
   $scope.totalcollection = [];
 
 
-  var getAllNerds = function () {
-    Nerd.get(function(dataResponse) {
+  var getAllPalindromes = function () {
+    Palindrome.get(function() {
 
     }).then(function(listOfPalindromes) {
       var list = [];
@@ -17,12 +17,13 @@ angular.module('GalleryCtrl', []).controller('GalleryController', function($scop
         return a.length - b.length;
       });
 
-      var end = list.length-1;
+      var end = list.length - 1;
       for (var i = end; i > -1; i--) {
         $scope.totalcollection.push({'entry': list[i]});
       }
     });
   };
-  getAllNerds()
+
+  getAllPalindromes();
 
 });

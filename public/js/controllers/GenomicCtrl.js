@@ -2,7 +2,7 @@
 angular.module('GenomicCtrl', []).controller('GenomicController', function($scope) {
 
 
-  $scope.bgenimicCollection = [];
+  $scope.genomicCollection = [];
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {

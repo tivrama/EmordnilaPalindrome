@@ -1,34 +1,23 @@
  // app/routes.js
 
-// grab the nerd model we just created
-var Nerd = require('./models/nerd');
+// grab the palindrome model we just created
+var Palindrome = require('./models/palindrome.js');
 
     module.exports = function(app) {
 
-        // server routes ===========================================================
-        // handle things like api calls
-        // authentication routes
-
-        // api route
-        app.get('/api/nerds', function(req, res) {
-            // use mongoose to get all nerds in the database
-            // console.log('INSIDE GET!!!')
-            Nerd.find(function(err, nerds) {
-                // if there is an error retrieving, send the error. 
-                // nothing after res.send(err) will execute
+        app.get('/api/palindromes', function(req, res) {
+            // console.log('INSIDE GET!!!');
+            Palindrome.find(function(err, palindromes) {
                 if (err) {
                     res.send(err);
                 }
-                res.json(nerds); // return all nerds in JSON format
+                res.json(palindromes);
             });
         });
 
-
-        // route to handle creating (app.post)
-        app.post('/api/nerds', function(req, res) {
-            // use mongoose save current nerd to db
+        app.post('/api/palindromes', function(req, res) {
             // console.log('INPUT INSIDE SERVER POST!!: ', req.body)
-            var userEntry = new Nerd({
+            var userEntry = new Palindrome({
                 name: req.body.entry
             });
             userEntry.save(function(err, resp) {
@@ -43,8 +32,6 @@ var Nerd = require('./models/nerd');
             });
         });
 
- 
-        // route to handle delete (app.delete)
 
 
         // frontend routes =========================================================

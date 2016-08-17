@@ -1,5 +1,5 @@
 // public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($scope, Nerd) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, Palindrome) {
 
   $scope.tagline = 'A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward. Allowances may be made for adjustments to capital letters, punctuation, and word dividers. - Wikipedia';
 
@@ -11,8 +11,8 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Ner
     return word.length;
   };
 
-  var getNerds = function () {
-    Nerd.get(function() {
+  var getPalindromes = function () {
+    Palindrome.get(function() {
     }).then(function(hello) {
       var end = hello.data.length - 1;
       // var trueCharacterLength;
@@ -26,6 +26,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Ner
     });
   };
 
-  getNerds();
+  getPalindromes();
 
 });

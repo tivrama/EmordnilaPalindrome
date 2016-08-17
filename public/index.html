@@ -19,11 +19,11 @@
 
     <!-- ANGULAR CUSTOM -->
     <script src="js/controllers/MainCtrl.js"></script>
-    <script src="js/controllers/NerdCtrl.js"></script>
+    <script src="js/controllers/PalinCtrl.js"></script>
     <script src="js/controllers/BinaryCtrl.js"></script>
     <script src="js/controllers/GenomicCtrl.js"></script>
     <script src="js/controllers/GalleryCtrl.js"></script>
-    <script src="js/services/NerdService.js"></script>
+    <script src="js/services/PalinService.js"></script>
     <script src="js/services/GalleryService.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
@@ -40,7 +40,7 @@
       };
     </script> -->
 
-<body ng-app="emordnilap" ng-controller="NerdController">
+<body ng-app="emordnilap" ng-controller="PalinController">
 <div class="container">
 
     <!-- HEADER -->
@@ -51,7 +51,7 @@
 
         <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
         <ul class="nav navbar-nav">
-            <li><a href="/nerds">Check your letter based palindromes!</a></li>
+            <li><a href="/palin">Check your letter based palindromes!</a></li>
         </ul>
 
         <ul class="nav navbar-nav">
@@ -65,10 +65,11 @@
         <ul class="nav navbar-nav">
             <li><a href="/gallery">Gallery of letter based Palindromes</a></li>
         </ul>
-        
+
         <!-- <ul class="nav navbar-nav">
             <li><a href="/nerds">Neet Stuff</a></li>
         </ul> -->
+
     </nav>
 
     <!-- ANGULAR DYNAMIC CONTENT -->

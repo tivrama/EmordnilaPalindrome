@@ -1,5 +1,6 @@
+
 // public/js/controllers/NerdCtrl.js
-angular.module('NerdCtrl', []).controller('NerdController', function($scope, Nerd, $http) {
+angular.module('PalinCtrl', []).controller('PalinController', function($scope, Palindrome, $http) {
 
 //----------------------------------------------------------
 //--- Delete this once https get request is resolved -------
@@ -108,8 +109,8 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
     );
   };
 
-  var addNerd = function () {
-    Nerd.create({'entry': $scope.userEntry})
+  var addPalindrome = function () {
+    Palindrome.create({'entry': $scope.userEntry})
       .catch(function (err) {
         console.log('Add palindrome API from client not working: ', err);
       });
@@ -134,7 +135,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, Ner
       }
 
       //send submission to server
-      addNerd();
+      addPalindrome();
 
     //Not a palindrome, try again
     } else {
