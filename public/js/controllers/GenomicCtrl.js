@@ -21,7 +21,8 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
   var lookForChars = function(entry) {
     var checker = false;
     for (var i = 0; i < entry.length; i++) {
-      if (entry[i] !== '1' && entry[i] !== '0' && entry[i] !== ',' && entry[i] !== ' ' && entry[i] !== '.') {
+      entry[i].toLowerCase();
+      if (entry[i] !== 'a' && entry[i] !== 't' && entry[i] !== 'u' && entry[i] !== 'c' && entry[i] !== 'g') {
         checker = true;
       }
     }
