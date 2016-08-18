@@ -22,6 +22,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
     };
 
     word = word.toLowerCase().replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    var match = [];
 
     var checkFor = DNA;
     for (var i = 0; i < word.length; i++) {
@@ -29,16 +30,15 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
         checkFor = RNA;
       }
     }
-    var drow = word.split('').reverse().join('');
-    var match = [];
 
     for (var j = 0; j < word.length; j++) {
-      match.push(checkFor[word[j]]);
+      match.unshift(checkFor[word[j]]);
     }
     match = match.join('');
 
-    return match === drow;
+    return match === word;
   };
+
 
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
@@ -67,7 +67,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
     }
     //submission must be greater than two letters
     else if (getPalinLength($scope.userEntry) < 3) {
-      $scope.tagline = 'uh, that is too short.  Maybe try again.';
+      $scope.tagline = 'uh, that is too short.  Maybe try again with something longer.';
     }
     //check if submission is a true palindrome
     else if (isItPalindrome($scope.userEntry)) {
@@ -77,7 +77,6 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
         );
 
       $scope.tagline = 'Nice! That is ' + getPalinLength($scope.userEntry) + ' nucleotides long!';
-
 
     //Not a palindrome, try again
     } else {
