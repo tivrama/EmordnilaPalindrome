@@ -24,7 +24,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
 
 //--- Delete this once https get request is resolved -------
 //----------------------------------------------------------
-  var api_key = process.env.WORDNIK_API_KEY;
+
 
   $scope.palincollection = [];
 
@@ -88,7 +88,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
 
     asyncLoop(list.length, function(loop) {
       console.log('Word sent to API: ', list[word]);
-      $http.get("http://api.wordnik.com:80/v4/word.json/" + list[word] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=api_key").then(function(result) {
+      $http.get("http://api.wordnik.com:80/v4/word.json/" + list[word] + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5").then(function(result) {
         console.log(result.data.examples);
         word++;
         if (!result.data.examples) {
