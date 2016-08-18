@@ -3,7 +3,7 @@
 This is a quick, easy place to check you palindromes. 
 For letter based palindromes, just paste it in (don't worry about punctuation and spaces). Entries over 20 letters will be displayed on the welcome screen.  But all valid submissions will be displayed in the gallery. 
 For binary palindromes, go to the binary view - 1's and 0's only please.  
-What about genomic palindromes?  Coming soonish!
+What about genomic palindromes?  You can check those too!
 
 
 
