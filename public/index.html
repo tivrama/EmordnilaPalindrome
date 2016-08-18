@@ -29,15 +29,6 @@
 
 </head>
 
-    <!-- <script>
-      window.onload = function() {
-        $(function() {
-          if (window.location.protocol === "https:") {
-            window.location.protocol = "http";
-          }
-        });
-      };
-    </script> -->
 
 <body ng-app="emordnilap" ng-controller="PalinController">
 <div class="container">
@@ -57,9 +48,9 @@
             <li><a href="/binary">Check your binary palindromes!</a></li>
         </ul>
 
-        <!-- <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
             <li><a href="/genomic">Check your genomic palindromes!</a></li>
-        </ul> -->
+        </ul>
 
         <ul class="nav navbar-nav">
             <li><a href="/gallery">Gallery of letter based Palindromes</a></li>
@@ -75,5 +66,18 @@
     <div ng-view></div>
 
 </div>
+
+
+    <script>
+      window.onload = function() {
+        $(function() {
+          if (window.location.protocol === "https:") {
+            window.location.protocol = "http";
+          }
+        });
+      };
+    </script>
+
+    
 </body>
 </html>
