@@ -2,33 +2,10 @@
 // public/js/controllers/NerdCtrl.js
 angular.module('PalinCtrl', []).controller('PalinController', function($scope, Palindrome, $http) {
 
-//----------------------------------------------------------
-//--- Delete this once https get request is resolved -------
-
-  // window.onload = function() {
-  //   $(function() {
-  //     if (window.location.protocol === "https:") {
-  //       window.location.protocol = "http";
-  //     }
-  //   });
-  // };
-
-  //Or add this in Heroku env config
-  // [   force_ssl: false   ]
-  //    or
-  // [   Access-Control-Allow-Origin: *   ]
-  //    or any of these? (not tested yet)
-  // [   Access-Control-Request-Headers   ]
-  // [   Access-Control-Allow-Origin   ]
-  // [   Access-Control-Allow-Methods   ]
-
-//--- Delete this once https get request is resolved -------
-//----------------------------------------------------------
-
 
   $scope.palincollection = [];
 
-  //checks entry - returns true or false
+
   var isItPalindrome = function(word) {
     word = word.toLowerCase().replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     for (var i = 0; i < word.length; i++) {
@@ -40,10 +17,12 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
     return word === drow;
   };
 
+
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     return word.length;
   };
+
 
   var asyncLoop = function(iterations, func, callback) {
     var index = 0;
@@ -53,21 +32,17 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
         if (done) {
           return;
         }
-
         if (index < iterations) {
           index++;
           func(loop);
-
         } else {
           done = true;
           callback();
         }
       },
-
       iteration: function() {
         return index - 1;
       },
-
       break: function() {
         done = true;
         callback();
@@ -76,8 +51,6 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
     loop.next();
     return loop;
   };
-
-
 
 
   $scope.check = function() {
@@ -112,6 +85,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
     );
   };
 
+
   var addPalindrome = function () {
     Palindrome.create({'entry': $scope.userEntry})
       .catch(function (err) {
@@ -119,7 +93,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
       });
   };
 
-  //call isItPalindrome to see if enty is correct.
+
   var finalCheck = function() {
     //submission must be greater than two letters
     if (getPalinLength($scope.userEntry) < 3) {
@@ -147,6 +121,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, P
     //reset input field
     $scope.userEntry = '';
   };
+
 
   var notRealWords = function () {
     $scope.tagline = 'mmm, you have to use real words...';
