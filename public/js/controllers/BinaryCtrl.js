@@ -12,6 +12,7 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
     return word === drow;
   };
 
+
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*2-9^a-zA-Z()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     return word.length;
