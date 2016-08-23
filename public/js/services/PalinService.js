@@ -7,6 +7,10 @@ angular.module('PalinService', []).factory('Palindrome', ['$http', function($htt
             return $http.get('/api/palindromes');
         },
 
+        checkWords : function(words) {
+            return $http.post('/api/checkWords', words);
+        },
+
         // these will work when more API routes are defined on the Node side of things
         // call to POST and create a new nerd
         create : function(userEntry) {

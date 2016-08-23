@@ -27,6 +27,7 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "method-override": "^2.3.6",
-    "mongoose": "^4.4.19"
+    "mongoose": "^4.4.19",
+    "request": "^2.74.0"
   }
 }
