@@ -2,7 +2,7 @@
 
 var Palindrome = require('./models/palindrome.js');
 var request = require('request');
-var express = require('express');
+// var express = require('express');
 
     module.exports = function(app) {
 
