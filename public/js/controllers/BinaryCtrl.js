@@ -59,4 +59,40 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
   };
 
 
+  //////////////////////////////////////////////////////////////////////////////
+  ////FUN STUFF!!////BUT RUN WITH CAUTION - TAKES A WHILE///////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+
+  var isPalindrome = function (number) {
+    num = number.toString().split('').reverse().join('');
+    // console.log('comment: ', num);
+    return num === number.toString();
+  }
+
+  var binaryPalindrome = function() {
+    //loop from 0 to 10000000 and save results
+    var palin = {
+      number: [],
+      binary: [],
+      both: []
+    };
+    var currentNumber = 0;
+    var bin;
+    while (currentNumber < 10000000) {
+      bin = (currentNumber >>> 0).toString(2);
+      if (isPalindrome(currentNumber)) {
+        palin.number.push({[currentNumber]: bin})
+      }
+      if (isPalindrome(bin)) {
+        palin.binary.push({[currentNumber]: bin})
+      }
+      if (palin.number[currentNumber] && palin.binary[currentNumber]) {
+        palin.both.push({[currentNumber]: bin})
+      }
+      currentNumber++;
+    }
+    return palin;
+  }
+
+
 });
