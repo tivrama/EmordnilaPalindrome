@@ -69,8 +69,8 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
     return num === number.toString();
   }
 
-  var binaryPalindrome = function() {
-    //loop from 0 to 10000000 and save results
+  var binaryPalindrome = function(rangeToN) {
+    //loop from 0 to whatever range and save results
     var palin = {
       number: [],
       binary: [],
@@ -78,7 +78,7 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
     };
     var currentNumber = 0;
     var bin;
-    while (currentNumber < 10000000) {
+    while (currentNumber <= rangeToN) {
       bin = (currentNumber >>> 0).toString(2);
       if (isPalindrome(currentNumber)) {
         palin.number.push({[currentNumber]: bin})
@@ -93,6 +93,5 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
     }
     return palin;
   }
-
 
 });
