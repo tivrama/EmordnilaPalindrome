@@ -11,48 +11,50 @@ What about genomic palindromes?  You can check those too!
 
 Go to the 'Try It Yourself' view and enter a palindrome.  Emordnilap will varify it and then add it to the gallary. It will tell you hown many letters it is.  If over 20 letters, it will be appended to the Welcome view.
 
-## Algorithyms on the Front End
+## Algorithms on the Front End
 
 All the algorithms for testing the palindromes is on the front end.  So you can look in the source files when on the site and see how your entries are tested.  Also in this files, is some code that may be fun to play with in your console.  Just use with caution as one of them uses a while loop that will go (a while) if you put too big a number in.
 
-{% highlight ruby %}
 
-var isItPalindrome = function(word) {
+var bothBinAndDecPalindrome = function(runUpToN) {
 
-  var DNA = {
-    a: 't',
-    c: 'g',
-    g: 'c',
-    t: 'a'
+  // This is the object that we will return
+  var palin = {
+    number: [],
+    binary: [],
+    both: []
   };
 
-  var RNA = {
-    a: 'u',
-    c: 'g',
-    g: 'c',
-    u: 'a'
+  // We will increment this number from '0' and check it
+  var currentNumber = 0;
+
+  // This will be the currentNumber in binary from
+  var bin;
+
+  // This is the actual palindrome checker
+  var isPalindrome = function (number) {
+    num = number.toString().split('').reverse().join('');
+    return num === number.toString();
   };
 
-  word = word.toLowerCase()
-    .replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-  var match = [];
-
-  var checkFor = DNA;
-  for (var i = 0; i < word.length; i++) {
-    if (word[i] === 'u') {
-      checkFor = RNA;
+  // Here we run through all the numbers and run them through 
+  // our isPalindrome function
+  while (currentNumber <= runUpToN) {
+    bin = (currentNumber >>> 0).toString(2);
+    if (isPalindrome(currentNumber)) {
+      palin.number.push({[currentNumber]: bin})
     }
+    if (isPalindrome(bin)) {
+      palin.binary.push({[currentNumber]: bin})
+    }
+    if (palin.number[currentNumber] && palin.binary[currentNumber]) {
+      palin.both.push({[currentNumber]: bin})
+    }
+    currentNumber++;
   }
 
-  for (var j = 0; j < word.length; j++) {
-    match.unshift(checkFor[word[j]]);
-  }
-  match = match.join('');
-
-  return match === word;
+  return palin;
 }; 
-
-{% endhighlight %}
 
 
 ## Contributing/Bugcheck
