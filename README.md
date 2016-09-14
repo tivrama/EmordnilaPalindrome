@@ -13,8 +13,61 @@ Go to the 'Try It Yourself' view and enter a palindrome.  Emordnilap will varify
 
 ## Algorithms on the Front End
 
-All the algorithms for testing the palindromes is on the front end.  So you can look in the source files when on the site and see how your entries are tested.  Also in this files, is some code that may be fun to play with in your console.  Just use with caution as one of them uses a while loop that will go (a while) if you put too big a number in.
+All the algorithms for testing the palindromes is on the front end.  So you can look in the source files when on the site and see how your entries are tested.  
+
+## Fun Times
+
+Here is a freebee: this will look for and number that is a palindrome both in decimal and binary.  For example, '1' is a Palindrome in each.  How many in 10,000,000?  Hint: not a lot.  Use this function to find out how many.  But be careful how big a number you put in.  It could take a while to run.
+
+```
+var bothBinAndDecPalindrome = function(runUpToN) {
+
+  // This is the object that we will return
+  var palin = {
+    number: [],
+    binary: [],
+    both: []
+  };
+
+  // We will increment this number from '0' and check it
+  var currentNumber = 0;
+
+  // This will be the currentNumber in binary from
+  var bin;
+
+  // This is the actual palindrome checker
+  var isPalindrome = function (number) {
+    num = number.toString().split('').reverse().join('');
+    return num === number.toString();
+  };
+
+  // Here we run through all the numbers and run them through 
+  // our isPalindrome function
+  while (currentNumber <= runUpToN) {
+    bin = (currentNumber >>> 0).toString(2);
+    if (isPalindrome(currentNumber)) {
+      palin.number.push({[currentNumber]: bin})
+    }
+    if (isPalindrome(bin)) {
+      palin.binary.push({[currentNumber]: bin})
+    }
+    if (palin.number[currentNumber] && palin.binary[currentNumber]) {
+      palin.both.push({[currentNumber]: bin})
+    }
+    currentNumber++;
+  }
+
+  return palin;
+};
+```
+
+
+
 
 ## Contributing/Bugcheck
 
 Please feel free to make a pull request for bug fixes or optimization.  
+
+
+
+
