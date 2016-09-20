@@ -53,7 +53,7 @@ var palindromeLibrary = {
     return match === word;
   },
 
-  var binaryPalindrome = function(rangeToN) {
+  binaryPalindrome: function(rangeToN) {
     //loop from 0 to whatever range and save results
     var palin = {
       number: [],
@@ -76,6 +76,23 @@ var palindromeLibrary = {
       currentNumber++;
     }
     return palin;
+  },
+
+  getPalinLength: function(word, type) {
+    if (type === 'letter') {
+      word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+      return word.length;
+    }
+    else if (type === 'binary') {
+      word = word.replace(/[\s`~!@#$%^&*2-9^a-zA-Z()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+      return word.length;
+    }
+    else if (type === 'genomic') {
+      word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+      return word.length;
+    } else {
+      console.log("Please enter type of entry as a second paramiter: 'letter', 'binary' or 'genomic");
+    }
   }
 
 

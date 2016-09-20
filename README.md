@@ -13,7 +13,7 @@ Go to the 'Try It Yourself' view and enter a palindrome.  Emordnilap will varify
 
 ## Algorithms on the Front End
 
-All the algorithms for testing the palindromes is on the front end.  So you can look in the source files when on the site and see how your entries are tested.  
+All the algorithms for testing the palindromes is on the front end.  So you can look in the source files when on the site and see how your entries are tested.  There is also a file [publicLibrary/palindromeLibrary.js] where a bunch of palindrome functions are there fo you to play with.  Have fun!
 
 ## Fun Times
 

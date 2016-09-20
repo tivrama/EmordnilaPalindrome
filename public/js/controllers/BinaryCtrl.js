@@ -92,6 +92,6 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
       currentNumber++;
     }
     return palin;
-  }
+  };
 
 });
