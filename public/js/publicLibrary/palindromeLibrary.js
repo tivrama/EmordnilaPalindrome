@@ -19,6 +19,7 @@ var palindromeLibrary = {
     return word === drow;
   },
 
+  // Returns boolean
   isGenomePalindrome: function(word) {
 
     var DNA = {
@@ -53,6 +54,8 @@ var palindromeLibrary = {
     return match === word;
   },
 
+
+  // runs a range from 0 to user's input.  Returns an object that has decimal palindromes, binary palindromes, and any numbers that are palindroms both as binary and decimal.  For example, '0' and '1' are each palindromes in their decimal forms, and binary forms.  Hint:  there are no others between 2 and 10,000,000.  Use this with caution.  It will tak a while. 
   binaryPalindrome: function(rangeToN) {
     //loop from 0 to whatever range and save results
     var palin = {
@@ -78,6 +81,8 @@ var palindromeLibrary = {
     return palin;
   },
 
+
+  // takes string as an entry, and the type of entry.  Returns the length minus any special chars.  
   getPalinLength: function(word, type) {
     if (type === 'letter') {
       word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');

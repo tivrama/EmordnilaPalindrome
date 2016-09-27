@@ -18,7 +18,7 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
     return word.length;
   };
 
-
+  //checks for 1'a and 0's
   var lookForChars = function(entry) {
     var checker = false;
     for (var i = 0; i < entry.length; i++) {
@@ -63,12 +63,14 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
   ////FUN STUFF!!////BUT RUN WITH CAUTION - TAKES A WHILE///////////////////////
   //////////////////////////////////////////////////////////////////////////////
 
+  // returns true if entry is a palindrome
   var isPalindrome = function (number) {
     num = number.toString().split('').reverse().join('');
     // console.log('comment: ', num);
     return num === number.toString();
   }
 
+  // runs a range from 0 to user's input.  Returns an object that has decimal palindromes, binary palindromes, and any numbers that are palindroms both as binary and decimal.  For example, '0' and '1' are each palindromes in their decimal forms, and binary forms.  Hint:  there are no others between 2 and 10,000,000.  Use this with caution.  It will tak a while.  
   var binaryPalindrome = function(rangeToN) {
     //loop from 0 to whatever range and save results
     var palin = {
