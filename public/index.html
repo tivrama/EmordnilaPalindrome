@@ -18,6 +18,16 @@
     <link rel="icon"  type="image/png" href="/css/favicon.ico">
     <link rel="stylesheet" href="css/styles.css"> <!-- custom styles -->
 
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
     <!-- JS -->
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
@@ -45,33 +55,87 @@
 </head>
 
 
-<body ng-app="emordnilap" ng-controller="PalinController">
+
+
+<body ng-app="emordnilap" ng-controller="PalinController" ng-cloak>
+
+
+    <md-toolbar layout="row">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>EmordnilaPalindromE</h1>
+    </md-toolbar>
+
+    <div flex layout="row">
+
+        <md-sidenav  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+          <md-list>
+
+            <md-list-item>
+                <md-button>
+                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <a href="/palin">Check your letter based Palindromes!</a>
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button>
+                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <a href="/palin">Check your letter based Palindromes!</a>
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button>
+                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <a href="/binary">Check your binary Palindromes!</a>
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button>
+                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <a href="/genomic">Check your genomic Palindromes!</a>
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button>
+                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <a href="/gallery">Gallery of letter based Palindromes</a>
+                </md-button>
+            </md-list-item>
+
+
+            <md-list-item ng-repeat="it in ul.users">
+                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+                  <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+                  {{it.name}}
+                </md-button>
+            </md-list-item>
+
+
+
+
+          </md-list>
+        </md-sidenav>
+
+        <md-content flex id="content">
+          <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+          <h2>{{ul.selected.name}}</h2>
+          <p>{{ul.selected.content}}</p>
+
+          <md-button class="share" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
+            <md-icon md-svg-icon="share"></md-icon>
+          </md-button>
+        </md-content>
+
+    </div>
+
+<!-- ------------------------------------------------------------ -->
 <div class="container">
 
-    <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Emordnilap</a>
-        </div>
-
-        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-        <ul class="nav navbar-nav">
-            <li><a href="/palin">Check your letter based Palindromes!</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav">
-            <li><a href="/binary">Check your binary Palindromes!</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav">
-            <li><a href="/genomic">Check your genomic Palindromes!</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav">
-            <li><a href="/gallery">Gallery of letter based Palindromes</a></li>
-        </ul>
-
-    </nav>
 
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div ng-view></div>

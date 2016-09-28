@@ -1,146 +1,131 @@
-body {
-  margin: 0px auto;
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Toolbar area */
+
+.menu {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+
+md-toolbar h3 {
+  margin: auto;
+  font-weight: 500;
+}
+
+/* Sidenav area */
+
+md-list-item > button {
+  width:100%;
+  text-align:left !important;
+}
+
+  md-list .md-button.selected {
+    color: #03a9f4;
+  }
+
+  md-sidenav  md-list {
+    padding: 0px 0px 8px 0px;
+  }
+
+
+/* Primary content area */
+
+#content {
+  overflow: hidden;
+}
+
+#content  {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+}
+
+#content .md-button.share {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
   position: absolute;
+  top: 10px;
+  right: 25px;
 }
 
-/*.navbar {
-  border-radius: 5px;
-  margin-bottom: 5px;
-  height: 25px;
+#content md-icon.avatar {
+  margin-top: 10px;
 }
 
-.navbar-header {
-  text-align: center;
-  font-size: 50px;
-  letter-spacing: 15px;
-  font-weight: bold;
-  color: #000000;
-  margin-top: -13px;
-}*/
-
-
-h1 {
-  letter-spacing: 20px;
-  padding-top: -15px;
+#content .md-button.share > md-icon {
+  fill:black;
+  width:36px;
+  height:36px;
 }
 
-h2 { 
-  text-align: center;
-  letter-spacing: 15px;
+md-button.menuBtn > md-icon {
+  fill:white;
+  width:24px;
+  height:24px;
 }
 
-/*h3 { 
-  text-align: center;
-  color: #000000;
-}*/
-
-
-hr.style-two {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+#content .md-button.share:active > md-icon {
+  background-color: #dadada;
+  border-radius: 75%;
+  padding:4px;
+  transition: all 100ms ease-out 30ms;
 }
 
-
-hr.style-four {
-  height: 12px;
-  border: 0;
-  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-}
-
-textarea:focus, input:focus{
-    outline: none;
-}
-
-*:focus {
-    outline: none;
-}
-
-.quote {
-  font-style: italic;
-}
-
-.timbus {
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-}
-
-
-.timbus:active {
-  background-color: #000000;
-  color: #eee;
-  transform: translateY(0px);
-}
-
-
-/*Hover does not work well with mobile*/
-/*.timbus:hover {
-    background-color: #000000;
-    color: #eee;
-}*/
-
-.go {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+#content img {
   display: block;
-  margin: auto;
-  width: 200px;
-  text-align: center;
-  color: #663399;
-  background-color: #eee;
-  font-size: 33px;
+  height: auto;
+  max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+.avatar {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}
+
+
+md-bottom-sheet  md-icon {
+  margin-right:20px;
+}
+
+span.name {
   font-weight: bold;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-radius: 55px;
-  border: 1px solid #663399;
-  margin-bottom: 200px;
+  font-size:1.1em;
+  padding-left:5px;
 }
-
-.go:hover {
-    background-color: #663399;
-    color: #eee;
-}
-
-.vote {
-/*  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;*/
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  text-align: center;
-  color: #663399;
-  background-color: #eee;
-  font-size: 33px;
-  font-weight: bold;
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-  display: block;
-  margin: auto;
-  border: 1px solid #663399;
-  margin-top: 0px;
-  margin-bottom: 40px;
-}
-
-.plusMinus:active {
-  background-color: #663399;
-  color: #eee;
-  transform: translateY(0px);
-}
-
-/*.vote:hover {
-    background-color: #663399;
-    color: #eee;
-}*/
-
-
-.space {
-  text-align: center;
-  padding-top: -15px;
-}
-
-.space2 {
-  text-align: center;
-  padding-top: 15px;
-}
-  
