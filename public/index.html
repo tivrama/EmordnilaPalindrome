@@ -58,12 +58,18 @@
 <body ng-app="emordnilap" ng-controller="PalinController" ng-cloak>
 
 
-    <md-toolbar layout="row">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-      <h1>EmordnilaPalindromE</h1>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+
+        <h2>
+          <span>EmordnilaPalindromE</span>
+        </h2>
+        <span flex></span>
+
+      </div>
     </md-toolbar>
+
+
 
     <div flex layout="row">
 
@@ -72,36 +78,36 @@
 
             <md-list-item>
                 <md-button ng-click="go('/')">
-                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <md-icon md-svg-icon="css/p.svg" class="avatar"></md-icon>
                 Emordnilap
                 </md-button>
             </md-list-item>
 
             <md-list-item>
                 <md-button ng-click="go('/palin')">
-                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
-                Letter Palindromes!
+                <md-icon md-svg-icon="css/sort-z-to-a.svg" class="avatar"></md-icon>
+                Letter Palindromes
                 </md-button>
             </md-list-item>
 
             <md-list-item>
                 <md-button ng-click="go('/binary')">
-                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
-                Binary Palindromes!
+                <md-icon md-svg-icon="css/binary-code.svg" class="avatar"></md-icon>
+                Binary Palindromes
                 </md-button>
             </md-list-item>
 
             <md-list-item>
                 <md-button ng-click="go('/genomic')">
-                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
-                Genomic Palindromes!
+                <md-icon md-svg-icon="css/dna.svg" class="avatar"></md-icon>
+                Genomic Palindromes
                 </md-button>
             </a>
             </md-list-item>
 
             <md-list-item>
                 <md-button ng-click="go('/gallery')">
-                <md-icon md-svg-icon="css/avatar-1.svg" class="avatar"></md-icon>
+                <md-icon md-svg-icon="css/sort-button-with-three-lines.svg" class="avatar"></md-icon>
                 Gallery of Palindromes
                 </md-button>
             </md-list-item>
