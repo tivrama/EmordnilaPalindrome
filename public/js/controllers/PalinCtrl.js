@@ -1,6 +1,12 @@
 
 // public/js/controllers/NerdCtrl.js
-angular.module('PalinCtrl', []).controller('PalinController', function($scope, Palindrome, $http) {
+angular.module('PalinCtrl', []).controller('PalinController', function($scope, $location, Palindrome, $http) {
+
+
+  $scope.go = function ( path ) {
+    $location.path( path );
+  };
+
 
 
   $scope.palincollection = [];
