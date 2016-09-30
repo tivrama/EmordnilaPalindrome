@@ -2,15 +2,23 @@
 
 <div>
 
-    <md-icon md-svg-icon="img/dna.svg" class="avatar" style="float: left;"></md-icon>
+    <md-icon md-svg-icon="img/dna.svg" class="avatarPage" style="float: left;"></md-icon>
 
     <div class="pageHeadder">
       <h3>Here is where you can test your genomic Palindromes</h3>
     </div>
 
-    <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'ACCTAGGT' (complement is TGGATCCA and will be figured out for you)">
 
-    <button ng-click="checkGenome(userEntry)" class="timbus">Submit Tim bus!</button>
+
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'ACCTAGGT' (complement is TGGATCCA and will be figured out for you)">
+        <button md-button ng-click="checkGenome(userEntry)" class="timbus">Submit Tim bus!</button>
+      </md-input-container>
+    </div>
+
+
 
     <h4>{{ tagline }}</h4>
 

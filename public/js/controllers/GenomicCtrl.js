@@ -73,7 +73,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
     else if (isItPalindrome($scope.userEntry)) {
       //add entry to list
       $scope.genomicCollection.unshift(
-        {'entry': $scope.userEntry}
+        {'entry': $scope.userEntry.toUpperCase()}
         );
 
       $scope.tagline = 'Nice! That is ' + getPalinLength($scope.userEntry) + ' nucleotides long!';
