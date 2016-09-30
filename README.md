@@ -15,9 +15,9 @@ Go to the 'Try It Yourself' view and enter a palindrome.  Emordnilap will varify
 
 All the algorithms for testing the palindromes is on the front end.  So you can look in the source files when on the site and see how your entries are tested.  There is also a file [publicLibrary/palindromeLibrary.js] where a bunch of palindrome functions are there fo you to play with.  Have fun!
 
-## Fun Times
+## Number that is a Palindrome in both Binary and Decimal?
 
-Here is a freebee: this will look for and number that is a palindrome both in decimal and binary.  For example, '1' is a Palindrome in each.  How many in 10,000,000?  Hint: not a lot.  Use this function to find out how many.  But be careful how big a number you put in.  It could take a while to run.
+This function will look for and number that is a palindrome both in decimal and binary.  For example, '1' is a Palindrome in each.  How many in 10,000,000?  Hint: not a lot.  Use this function to find out how many.  But be careful how big a number you put in.  It could take a while to run.
 
 ```
 var bothBinAndDecPalindrome = function(runUpToN) {
@@ -61,7 +61,9 @@ var bothBinAndDecPalindrome = function(runUpToN) {
 };
 ```
 
+## Different Branches
 
+Current deployed Master branch uses the MEAN stack with Angular Material.  There is also a Bootstrap branch with a different look.
 
 
 ## Contributing/Bugcheck

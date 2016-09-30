@@ -1,10 +1,12 @@
 <!-- public/views/nerd.html -->
 
-<div class="jumbotron text-center">
+<div>
 
-    <h1>EmordnilaPalindromE</h1>
+    <md-icon md-svg-icon="img/sort-z-to-a.svg" class="avatar" style="float: left;"></md-icon>
 
-    <h3>Here is where you can enter some letter based Palindromes</h3>
+    <div class="pageHeadder">
+      <h3>Here is where you can enter some letter based Palindromes</h3>
+    </div>
 
     <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
 
@@ -14,7 +16,7 @@
 
     <div>{{ prize }}</div>
 
-      <div ng-repeat="words in palincollection">
+      <div  style="text-align: center;" ng-repeat="words in palincollection">
         <div>
           <hr class="style-two">
           <h4>{{words.entry}}</h4>

@@ -1,10 +1,12 @@
 <!-- public/views/genomic.html -->
 
-<div class="jumbotron text-center">
+<div>
 
-    <h1>EmordnilaPalindromE</h1>
+    <md-icon md-svg-icon="img/dna.svg" class="avatar" style="float: left;"></md-icon>
 
-    <h3>Here is where you can test your genomic Palindromes</h3>
+    <div class="pageHeadder">
+      <h3>Here is where you can test your genomic Palindromes</h3>
+    </div>
 
     <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'ACCTAGGT' (complement is TGGATCCA and will be figured out for you)">
 
@@ -16,7 +18,7 @@
 
 
 
-      <div ng-repeat="words in genomicCollection">
+      <div  style="text-align: center;" ng-repeat="words in genomicCollection">
         <div>
           <hr class="style-two">
           <h4>{{words.entry}}</h4>

@@ -9,7 +9,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'MainController'
         })
 
-        // nerds page that will use the NerdController
         .when('/palin', {
             templateUrl: 'views/palin.html',
             controller: 'PalinController'

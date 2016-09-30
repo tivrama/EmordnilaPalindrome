@@ -1,10 +1,15 @@
 <!-- public/views/gallery.html -->
 
-<div class="jumbotron text-center">
-    <h1>EmordnilaPalindromE</h1>
-    <h3>All User Entries Below (Longest to Shortest)</h3> 
+<div>
 
-    <div ng-repeat="words in totalcollection">
+
+		<md-icon md-svg-icon="img/sort-button-with-three-lines.svg" class="avatar" style="float: left;"></md-icon>
+
+		<div class="pageHeadder">    
+    	<h3>All User Entries Below (Longest to Shortest)</h3> 
+  	</div>
+  	
+    <div  style="text-align: center;" ng-repeat="words in totalcollection">
     
       <div>
         <hr class="style-two">

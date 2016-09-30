@@ -8,18 +8,25 @@
     <title>EmordnilaPalindromE</title>
 
     <!-- CSS -->
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Angular Material style sheet -->
-    <!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    </head> -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 
 
-    <link rel="icon"  type="image/png" href="/css/favicon.ico">
+    <link rel="icon"  type="image/png" href="/img/favicon3.ico">
     <link rel="stylesheet" href="css/styles.css"> <!-- custom styles -->
+
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
 
     <!-- JS -->
     <script src="libs/angular/angular.min.js"></script>
@@ -27,12 +34,12 @@
 
 
   <!-- Angular Material requires Angular.js Libraries -->
-  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
   <!-- Angular Material Library -->
-  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
 
     <!-- ANGULAR CUSTOM -->
@@ -48,38 +55,70 @@
 </head>
 
 
-<body ng-app="emordnilap" ng-controller="PalinController">
-<div class="container">
+<body ng-app="emordnilap" ng-controller="PalinController" ng-cloak>
 
-    <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Emordnilap</a>
-        </div>
 
-        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-        <ul class="nav navbar-nav">
-            <li><a href="/palin">Check your letter based Palindromes!</a></li>
-        </ul>
+    <md-toolbar>
 
-        <ul class="nav navbar-nav">
-            <li><a href="/binary">Check your binary Palindromes!</a></li>
-        </ul>
+        <h1>EmordnilaPalindromE</h1>
 
-        <ul class="nav navbar-nav">
-            <li><a href="/genomic">Check your genomic Palindromes!</a></li>
-        </ul>
+    </md-toolbar>
 
-        <ul class="nav navbar-nav">
-            <li><a href="/gallery">Gallery of letter based Palindromes</a></li>
-        </ul>
 
-    </nav>
 
-    <!-- ANGULAR DYNAMIC CONTENT -->
-    <div ng-view></div>
+    <div flex layout="row">
 
-</div>
+        <md-sidenav  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+          <md-list>
+
+            <md-list-item>
+                <md-button ng-click="go('/')">
+                <md-icon md-svg-icon="img/p.svg" class="avatar"></md-icon>
+                Emordnilap
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button ng-click="go('/palin')">
+                <md-icon md-svg-icon="img/sort-z-to-a.svg" class="avatar"></md-icon>
+                Letter Palindromes
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button ng-click="go('/binary')">
+                <md-icon md-svg-icon="img/binary-code.svg" class="avatar"></md-icon>
+                Binary Palindromes
+                </md-button>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button ng-click="go('/genomic')">
+                <md-icon md-svg-icon="img/dna.svg" class="avatar"></md-icon>
+                Genomic Palindromes
+                </md-button>
+            </a>
+            </md-list-item>
+
+            <md-list-item>
+                <md-button ng-click="go('/gallery')">
+                <md-icon md-svg-icon="img/sort-button-with-three-lines.svg" class="avatar"></md-icon>
+                Gallery of Palindromes
+                </md-button>
+            </md-list-item>
+
+          </md-list>
+        </md-sidenav>
+
+
+
+        <md-content flex id="content">
+            <!-- ANGULAR DYNAMIC CONTENT -->
+            <div ng-view></div>
+        </md-content>
+
+    </div>
+
 
 </body>
 </html>
