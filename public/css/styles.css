@@ -15,7 +15,10 @@ h1 {
   padding-bottom: 15px;
 }
 
-
+.list {
+  font-size: 125%;
+  color: #ADD8E6;
+}
 
 html, body {
   font-family: 'Roboto', sans-serif;
