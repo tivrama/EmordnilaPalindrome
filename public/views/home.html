@@ -2,14 +2,17 @@
 
 <div>
 
-  <md-icon md-svg-icon="img/p.svg" class="avatar" style="float: left;"></md-icon>
+  <md-icon md-svg-icon="img/p4.svg" class="avatar" style="float: left;"></md-icon>
 
-    <h2 class="md-display-3">EmordnilaPalindromE</h2>
+    <!-- <h1>EmordnilaPalindromE</h1> -->
+    <div class="pageHeadder">
+      <h3>Most Recent Top Letter Based Entries Below!</h3>
+    </div>
 
-    <p class="quote">{{ tagline }}</p>
-		<h3>Most Recent Top Letter Based Entries Below!</h3>
+    <p class="quote">A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward. Allowances may be made for adjustments to capital letters, punctuation, and word dividers. Examples in English include "A man, a plan, a canal, Panama!", "Amor, Roma", "race car", "stack cats", "step on no pets", "taco cat", "put it up", "Was it a car or a cat I saw?" and "No 'x' in Nixon". - Wikipedia</p>
 
-    <!-- <div style="text-align: left;" ng-repeat="words in servercollection"> -->
+    <p>Below are the most recently entered letter based palindromes that are over 20 characters long.  All spaces and punctuation are not counted as characters.  Please enter some youself.  You have to use real words (we will be checking).</p>
+
     <div  style="text-align: center;" ng-repeat="words in servercollection">
       <div>
         <hr class="style-two">
