@@ -18,7 +18,13 @@
     "url": "git+https://github.com/tivrama/EmordnilaPalindrome"
   },
   "keywords": [
-    "palindrome"
+    "palindrome",
+    "palindromes",
+    "emordnilap",
+    "EmordnilaPalindrome",
+    "binary palindrome",
+    "genomic palindrome",
+    "palindromic sequence"
   ],
   "author": "joel",
   "license": "ISC",
