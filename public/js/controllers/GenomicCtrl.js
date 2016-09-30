@@ -3,6 +3,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
 
 
   $scope.genomicCollection = [];
+  $scope.complement = '';
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
@@ -23,6 +24,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
 
     word = word.toLowerCase().replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     var match = [];
+    var tempComplement = [];
 
     var checkFor = DNA;
     for (var i = 0; i < word.length; i++) {
@@ -33,7 +35,10 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
 
     for (var j = 0; j < word.length; j++) {
       match.unshift(checkFor[word[j]]);
+      tempComplement.push(checkFor[word[j]]);
     }
+
+    $scope.complement = tempComplement.join('');
     match = match.join('');
 
     return match === word;
@@ -73,14 +78,17 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
     else if (isItPalindrome($scope.userEntry)) {
       //add entry to list
       $scope.genomicCollection.unshift(
-        {'entry': $scope.userEntry.toUpperCase()}
-        );
+        {
+          'entry': $scope.userEntry.toUpperCase(),
+          'comp': $scope.complement.toUpperCase()
+        }
+      );
 
-      $scope.tagline = 'Nice! That is ' + getPalinLength($scope.userEntry) + ' nucleotides long!';
+      $scope.tagline = 'Nice! That is ' + getPalinLength($scope.userEntry) + ' nucleotides long!  The complement is ' + $scope.complement.toUpperCase() + '.';
 
     //Not a palindrome, try again
     } else {
-      $scope.tagline = 'No, that is not a palindrome';
+      $scope.tagline = 'No, that is not a palindrome.  The complement is ' + $scope.complement.toUpperCase() + '.';
     }
     //reset input field
     $scope.userEntry = '';

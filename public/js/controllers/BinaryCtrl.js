@@ -44,8 +44,11 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
     else if (isItPalindrome($scope.userEntry)) {
       //add entry to list
       $scope.bitcollection.unshift(
-        {'entry': $scope.userEntry}
-        );
+        {
+        'entry': $scope.userEntry,
+        'dec': parseInt($scope.userEntry, 2)
+        }
+      );
 
       $scope.tagline = 'Nice job! That is ' + getPalinLength($scope.userEntry) + ' bits!';
 
