@@ -2,15 +2,20 @@
 
 <div>
 
-    <md-icon md-svg-icon="img/binary-code.svg" class="avatar" style="float: left;"></md-icon>
+    <md-icon md-svg-icon="img/binary-code.svg" class="avatarPage" style="float: left;"></md-icon>
 
     <div class="pageHeadder">
       <h3>Here is where you can test your binary Palindromes</h3>
     </div>
 
-    <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: '101101' (decimal 45), and the longer, the more points!">
 
-    <button ng-click="checkBits(userEntry)" class="timbus">Submit Tim bus!</button>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: '101101' (decimal 45), and the longer, the more points!">
+
+        <button md-button ng-click="checkBits(userEntry)" class="timbus">Submit Tim bus!</button>
+      </md-input-container>
+    </div>
 
     <h4>{{ tagline }}</h4>
 

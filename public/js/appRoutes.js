@@ -1,5 +1,16 @@
 // public/js/appRoutes.js
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+angular.module('appRoutes', ['ngMaterial']).config(['$routeProvider', '$locationProvider', '$mdThemingProvider', function($routeProvider, $locationProvider, $mdThemingProvider) {
+
+    // Disable Angular Material Theming
+    // $mdThemingProvider.disableTheming();
+
+
+    // Angular Material Dark Theme
+    $mdThemingProvider.theme('default')
+        .dark();
+
+
+
 
     $routeProvider
 

@@ -2,15 +2,21 @@
 
 <div>
 
-    <md-icon md-svg-icon="img/sort-z-to-a.svg" class="avatar" style="float: left;"></md-icon>
+    <md-icon md-svg-icon="img/sort-z-to-a.svg" class="avatarPage" style="float: left;"></md-icon>
 
     <div class="pageHeadder">
       <h3>Here is where you can enter some letter based Palindromes</h3>
     </div>
 
-    <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
 
-    <button ng-click="check(userEntry)" class="timbus">Submit Tim bus!</button>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input style="width: 500px;" type="text" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
+
+        <button md-button ng-click="check(userEntry)" class="timbus">Submit Tim bus!</button>
+      </md-input-container>
+    </div>
+
 
     <h4>{{ tagline }}</h4>
 
