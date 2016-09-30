@@ -9,6 +9,13 @@
     </div>
 
 
+      <md-content flex="" layout-padding="">
+      
+        <p>All valid entries over 20 characters long will be appended to the home view. For entries of any size, to be considered valid, they must be letter based palindromes over 2 characters long. Entries are first sent to an online dictionary to verify that the words are real.  They are then checked by removing all spaces and punctuation, reversing the letters, and then comparing to the original entry.  The length of the entries does not include spaces or punctuation.</p>
+
+      </md-content>
+
+
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm="">
         <input style="width: 500px;" type="text" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
