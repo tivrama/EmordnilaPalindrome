@@ -1,4 +1,4 @@
-// public/js/services/NerdService.js
+// public/js/services/PalinService.js
 angular.module('PalinService', []).factory('Palindrome', ['$http', function($http) {
 
     return {
