@@ -1,5 +1,4 @@
-
-// public/js/controllers/NerdCtrl.js
+// public/js/controllers/PalinCtrl.js
 angular.module('PalinCtrl', []).controller('PalinController', function($scope, $location, Palindrome, $http) {
 
 
@@ -10,7 +9,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
 
   $scope.palincollection = [];
-
+  $scope.palinLength = 0;
 
   var isItPalindrome = function(word) {
     word = word.toLowerCase().replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
@@ -26,6 +25,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    $scope.palinLength = word.length;
     return word.length;
   };
 
@@ -110,9 +110,9 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
       $scope.palincollection.unshift(
         {'entry': $scope.userEntry}
         );
-      $scope.tagline = 'Nice job! That is ' + getPalinLength($scope.userEntry) + ' letters (not including spaces or punctuation)';
+      $scope.tagline = 'Nice job! That is ' + $scope.palinLength + ' letters (not including spaces or punctuation)';
 
-      if (getPalinLength($scope.userEntry) > 20) {
+      if ($scope.palinLength > 20) {
         $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
       }
 

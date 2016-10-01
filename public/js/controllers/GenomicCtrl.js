@@ -1,9 +1,10 @@
-// public/js/controllers/NerdCtrl.js
+// public/js/controllers/GenomicCtrl.js
 angular.module('GenomicCtrl', []).controller('GenomicController', function($scope) {
 
 
   $scope.genomicCollection = [];
   $scope.complement = '';
+  $scope.genomicLength = 0;
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
@@ -47,6 +48,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
 
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*0-9()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    $scope.genomicLength = word.length;
     return word.length;
   };
 
@@ -84,7 +86,7 @@ angular.module('GenomicCtrl', []).controller('GenomicController', function($scop
         }
       );
 
-      $scope.tagline = 'Nice! That is ' + getPalinLength($scope.userEntry) + ' nucleotides long!  The complement is ' + $scope.complement.toUpperCase() + '.';
+      $scope.tagline = 'Nice! That is ' + $scope.genomicLength + ' nucleotides long!  The complement is ' + $scope.complement.toUpperCase() + '.';
 
     //Not a palindrome, try again
     } else {

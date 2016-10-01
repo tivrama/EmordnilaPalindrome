@@ -1,8 +1,9 @@
-// public/js/controllers/NerdCtrl.js
+// public/js/controllers/BinaryCtrl.js
 angular.module('BinaryCtrl', []).controller('BinaryController', function($scope) {
 
 
   $scope.bitcollection = [];
+  $scope.bitLength = 0;
 
   //checks entry - returns true or false
   var isItPalindrome = function(word) {
@@ -15,6 +16,7 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
 
   var getPalinLength = function(word) {
     word = word.replace(/[\s`~!@#$%^&*2-9^a-zA-Z()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    $scope.bitLength = word.length;
     return word.length;
   };
 
@@ -50,7 +52,7 @@ angular.module('BinaryCtrl', []).controller('BinaryController', function($scope)
         }
       );
 
-      $scope.tagline = 'Nice job! That is ' + getPalinLength($scope.userEntry) + ' bits!';
+      $scope.tagline = 'Nice job! That is ' + $scope.bitLength + ' bits!';
 
 
     //Not a palindrome, try again

@@ -13,13 +13,13 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Pal
 
   var getPalindromes = function () {
     Palindrome.get(function() {
-    }).then(function(hello) {
-      var end = hello.data.length - 1;
+    }).then(function(responce) {
+      var end = responce.data.length - 1;
       // var trueCharacterLength;
       for (var i = end; $scope.servercollection.length < 10; i--) {
-        if (getPalinLength(hello.data[i].name) > 20) {
+        if (getPalinLength(responce.data[i].name) > 20) {
           $scope.servercollection.push(
-            {'entry': hello.data[i].name}
+            {'entry': responce.data[i].name}
           );
         }
       }
