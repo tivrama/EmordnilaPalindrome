@@ -5,8 +5,6 @@ For letter based palindromes, just paste it in (don't worry about punctuation an
 For binary palindromes, go to the binary view - 1's and 0's only please.  
 What about genomic palindromes?  You can check those too!
 
-
-
 ## Usage
 
 Go to the 'Try It Yourself' view and enter a palindrome.  Emordnilap will varify it and then add it to the gallary. It will tell you hown many letters it is.  If over 20 letters, it will be appended to the Welcome view.
