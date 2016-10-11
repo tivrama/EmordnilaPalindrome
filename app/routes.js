@@ -17,7 +17,6 @@ var key = process.env.WORDNIK_API_KEY;
             });
         });
 
-
         app.post('/api/checkWords', function(req, res) {
             console.log('INSIDE POST!!!: ', req.body);
             //get query from req
@@ -33,7 +32,6 @@ var key = process.env.WORDNIK_API_KEY;
                 }
             });
         });
-
 
         app.post('/api/palindromes', function(req, res) {
             // console.log('INPUT INSIDE SERVER POST!!: ', req.body)
@@ -51,8 +49,6 @@ var key = process.env.WORDNIK_API_KEY;
                 }
             });
         });
-
-
 
         // frontend routes =========================================================
         // route to handle all angular requests
