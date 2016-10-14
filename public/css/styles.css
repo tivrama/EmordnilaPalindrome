@@ -38,6 +38,11 @@ html, body {
   width: 36px;
 }
 
+/*
+.my-header {
+  position:fixed !important;
+}
+*/
 
 md-toolbar h3 {
   margin: auto;
