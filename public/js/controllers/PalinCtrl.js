@@ -1,5 +1,5 @@
 // public/js/controllers/PalinCtrl.js
-angular.module('PalinCtrl', []).controller('PalinController', function($scope, $location, Palindrome, $http) {
+angular.module('PalinCtrl', []).controller('PalinController', function($scope, $location, Palindrome, $http, $mdDialog) {
 
 
   $scope.go = function ( path ) {
@@ -113,11 +113,8 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
       if ($scope.palinLength > 20) {
         $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
-        // change id to show
-        
-
-
-
+        //modal popup of a prize
+        $scope.showAdvanced();
       }
 
       //send submission to server
@@ -135,5 +132,39 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
   var notRealWords = function () {
     $scope.tagline = 'mmm, you have to use real words...';
   };
+
+
+  //Displays prize modal for good entries over 20 letters
+  $scope.showAdvanced = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'dialog1.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+    })
+    .then(function(answer) {
+      $scope.status = 'Hello!';
+    }, function() {
+      $scope.status = 'Goodbye';
+    });
+  };
+
+  //Controller for the modal
+  function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+  };
+
 
 });
