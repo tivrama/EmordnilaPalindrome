@@ -1,6 +1,5 @@
 var palindromeLibrary = {
 
-
   // Returns boolean
   isNumberPalindrome: function (number) {
     num = number.toString().split('').reverse().join('');

@@ -6,8 +6,6 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
     $location.path( path );
   };
 
-
-
   $scope.palincollection = [];
   $scope.palinLength = 0;
 
@@ -84,7 +82,8 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
         if (checker) { 
           finalCheck();
         } else {
-          notRealWords();
+          notRealWords(); // FOR DEPLOYMENT
+          // finalCheck(); // FOR TESTING WITHOUT USING API
         }
       }
     );
@@ -114,6 +113,11 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
       if ($scope.palinLength > 20) {
         $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
+        // change id to show
+        
+
+
+
       }
 
       //send submission to server
