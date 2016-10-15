@@ -28,8 +28,29 @@
     <h4>{{ tagline }}</h4>
 
     <div>{{ prize }}</div>
+    <!-- Prize for entries over 20 characters long -->
+    <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Prize">
+      <form ng-cloak>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>Way to go, Champ!  Here is your Prize!</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+              <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
 
-    <iframe class="userPrize" id="utubePrize" width="560" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4?autoplay=1" frameborder="0" allowfullscreen ng-if="showIframe"></iframe>
+        <md-dialog-content>
+          <div class="md-dialog-content">
+
+        <iframe class="userPrize" width="560" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+        </md-dialog-actions>
+      </form>
+    </md-dialog>
+    </script>
+
 
       <div  style="text-align: center;" ng-repeat="words in palincollection">
         <div>
