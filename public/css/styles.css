@@ -16,8 +16,23 @@ h1 {
 }
 
 .list {
-  font-size: 125%;
+  font-size: 135%;
   color: #ADD8E6;
+}
+
+.page {
+  font-size: 115%;
+  color: #ADD8E6;
+}
+
+.tag-line {
+  font-size: 115%;
+  color: #ADD8E6;
+}
+
+.prize-line {
+  font-size: 115%;
+  color: #ADD8E6; 
 }
 
 html, body {
