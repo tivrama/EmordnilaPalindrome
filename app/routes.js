@@ -18,7 +18,7 @@ var key = process.env.WORDNIK_API_KEY;
         });
 
         app.post('/api/checkWords', function(req, res) {
-            console.log('INSIDE POST!!!: ', req.body);
+            console.log('Inside checkWords Post: ', req.body);
             //get query from req
             var query = req.body.word;
             // make the request of reddit
@@ -34,9 +34,10 @@ var key = process.env.WORDNIK_API_KEY;
         });
 
         app.post('/api/palindromes', function(req, res) {
-            // console.log('INPUT INSIDE SERVER POST!!: ', req.body)
+            console.log('INPUT INSIDE SERVER POST!!: ', req.body)
             var userEntry = new Palindrome({
-                name: req.body.entry
+                name: req.body.entry,
+                lintedName: req.body.lintedEntry
             });
             userEntry.save(function(err, resp) {
                 if (err) {
