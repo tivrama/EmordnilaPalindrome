@@ -84,6 +84,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
 
   $scope.check = function() {
+    $scope.prize = '';
     var list = $scope.userEntry.replace(/[`~!@#$%^&*0-9()_|+\-=?;:",.<>\{\}\[\]\\\/]/gi, '');
     list = list.split(' ');
     var checker = true;
@@ -130,7 +131,6 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
     $scope.palinLength = $scope.lintedUserEntry.length;
     //submission must be greater than two letters
     if ($scope.palinLength < 3) {
-
       $scope.tagline = 'uh, that is too short.  Maybe try again.';
     }
     //check if submission is a true palindrome
@@ -194,7 +194,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
   };
 
   //Controller for the modal
-  function DialogController($scope, $mdDialog) {
+  var DialogController = function($scope, $mdDialog) {
     $scope.hide = function() {
       $mdDialog.hide();
     };
@@ -209,4 +209,15 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
   };
 
 
+  var prizeCollection = [
+    'JUQDzj6R3p4',
+    'N5F66JwLq90',
+    'mJTvyaw-5LY',
+    'LZouZq-BprE'
+  ];
+
+  // <iframe class="userPrize" id="userPrize-iframe" width="560" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  // "https://www.youtube.com/embed/" + prizeCollection.random + "?autoplay=1"
+  // document.getElementById('userPrize-iframe').src = 'https://www.youtube.com/embed/N5F66JwLq90?autoplay=1';
+ 
 });
