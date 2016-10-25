@@ -108,8 +108,8 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
         if (checker) { 
           finalCheck();
         } else {
-          // notRealWords(); // FOR DEPLOYMENT
-          finalCheck(); // FOR TESTING WITHOUT USING API
+          notRealWords(); // FOR DEPLOYMENT
+          // finalCheck(); // FOR TESTING WITHOUT USING API
         }
       }
     );
