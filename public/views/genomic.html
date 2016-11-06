@@ -21,8 +21,10 @@
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm="">
-        <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'ACCTAGGT' (complement is TGGATCCA and will be figured out for you)">
-        <button md-button ng-click="checkGenome(userEntry)" class="timbus">Submit Tim bus!</button>
+        <form ng-submit="checkGenome(userEntry)">
+          <input style="width: 500px;" type="text" name="nerd" ng-model="userEntry" placeholder="ex: 'ACCTAGGT' (complement is TGGATCCA and will be figured out for you)">
+          <button md-button ng-click="checkGenome(userEntry)" class="timbus">Submit Tim bus!</button>
+        </form>
       </md-input-container>
     </div>
 
