@@ -18,9 +18,11 @@
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm="">
-        <input style="width: 500px;" type="text" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
+        <form ng-submit="check(userEntry)">
+          <input style="width: 500px;" type="text" ng-model="userEntry" placeholder="ex: 'Race fast safe car', and the longer, the more points!">
 
-        <button md-button ng-click="check(userEntry)" class="timbus">Submit Tim bus!</button>
+          <button md-button ng-click="check(userEntry)" class="timbus">Submit Tim bus!</button>
+        </form>
       </md-input-container>
     </div>
 
