@@ -8,8 +8,8 @@ angular.module('appRoutes', ['ngMaterial']).config(['$routeProvider', '$location
     $mdThemingProvider.theme('default')
         .dark();
 
-    $routeProvider
 
+    $routeProvider
         // home page
         .when('/', {
             templateUrl: 'views/home.html',

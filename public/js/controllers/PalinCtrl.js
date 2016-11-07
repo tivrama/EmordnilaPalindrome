@@ -1,5 +1,5 @@
 // public/js/controllers/PalinCtrl.js
-angular.module('PalinCtrl', []).controller('PalinController', function($scope, $location, Palindrome, $http, $mdDialog) {
+angular.module('PalinCtrl', []).controller('PalinController', function($scope, $location, Palindrome, $http, $sce, $mdDialog) {
 
   //for routes
   $scope.go = function ( path ) {
@@ -125,6 +125,25 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
   };
 
 
+//-------------------------------------------------------
+
+  var prizeCollection = [
+    'JUQDzj6R3p4',
+    'N5F66JwLq90',
+    'mJTvyaw-5LY',
+    'LZouZq-BprE'
+  ];
+
+  $scope.selectRandomMovie = function() {
+    var pre = 'https://www.youtube.com/embed/';
+    var post = '?autoplay=1';
+    $scope.movie = pre + prizeCollection[Math.floor(Math.random() * ((prizeCollection.length-1) - 0 + 1)) + 0] + post;
+    $scope.url = $sce.trustAsResourceUrl($scope.movie);
+  };
+
+//-------------------------------------------------------
+
+
   var finalCheck = function() {
     //save linted version of user entry and the length
     $scope.lintedUserEntry = lintUserEntry();
@@ -146,6 +165,8 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
         if ($scope.palinLength > 20) {
           $scope.prize = 'That is over 20 letters!  Your palendrome has been appended to to the main page!';
+          //select a reandom movie
+          // $scope.selectRandomMovie();
           //modal popup of a prize
           $scope.showAdvanced();
         }
@@ -157,11 +178,12 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
 
         if ($scope.palinLength > 20) {
           $scope.prize = 'That is over 20 letters! \nHowever, this entry was already in the gallery, so it will not be appended to the home page.';
+          //select a reandom movie
+          // $scope.selectRandomMovie();
           //modal popup of a prize
           $scope.showAdvanced();
         }
       }
-
     //Not a palindrome, try again
     } else {
       $scope.tagline = 'oops, not quite.  Try again.';
@@ -187,9 +209,9 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
       fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
     })
     .then(function(answer) {
-      $scope.status = 'Hello!';
+      $scope.status = 'Got answer';
     }, function() {
-      $scope.status = 'Goodbye';
+      $scope.status = 'Canceled';
     });
   };
 
@@ -207,17 +229,5 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
       $mdDialog.hide(answer);
     };
   };
-
-
-  var prizeCollection = [
-    'JUQDzj6R3p4',
-    'N5F66JwLq90',
-    'mJTvyaw-5LY',
-    'LZouZq-BprE'
-  ];
-
-  // <iframe class="userPrize" id="userPrize-iframe" width="560" height="315" src="https://www.youtube.com/embed/JUQDzj6R3p4?autoplay=1" frameborder="0" allowfullscreen></iframe>
-  // "https://www.youtube.com/embed/" + prizeCollection.random + "?autoplay=1"
-  // document.getElementById('userPrize-iframe').src = 'https://www.youtube.com/embed/N5F66JwLq90?autoplay=1';
  
 });

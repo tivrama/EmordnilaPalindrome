@@ -67,13 +67,13 @@ var palindromeLibrary = {
     while (currentNumber <= rangeToN) {
       bin = (currentNumber >>> 0).toString(2);
       if (isNumberPalindrome(currentNumber)) {
-        palin.number.push({[currentNumber]: bin})
+        palin.number.push({[currentNumber]: bin});
       }
       if (isNumberPalindrome(bin)) {
-        palin.binary.push({[currentNumber]: bin})
+        palin.binary.push({[currentNumber]: bin});
       }
       if (palin.number[currentNumber] && palin.binary[currentNumber]) {
-        palin.both.push({[currentNumber]: bin})
+        palin.both.push({[currentNumber]: bin});
       }
       currentNumber++;
     }
