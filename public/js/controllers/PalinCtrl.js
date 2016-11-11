@@ -198,6 +198,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
   };
 
 
+
   //Displays prize modal for good entries over 20 letters
   $scope.showAdvanced = function(ev) {
     $mdDialog.show({
