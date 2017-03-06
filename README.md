@@ -63,6 +63,13 @@ var bothBinAndDecPalindrome = function(runUpToN) {
 
 Current deployed Master branch uses the MEAN stack with Angular Material.  There is also a Bootstrap branch with a different look.
 
+## Feel free to clone and play around.  To get it running, you will need mongo on you local pc.  
+- Clone into a local folder and cd into it.
+- npm i
+- mongod
+- npm start
+- go to localhost:8080;
+
 
 ## Contributing/Bugcheck
 
