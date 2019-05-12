@@ -22,7 +22,7 @@ var key = process.env.WORDNIK_API_KEY;
             //get query from req
             var query = req.body.word;
             // make the request of reddit
-            request("http://api.wordnik.com:80/v4/word.json/" + query + "/examples?includeDuplicates=false&useCanonical=false&skip=0&limit=1&api_key=" + key, function(error, response, body) {
+            request("https://api.wordnik.com/v4/word.json/" + query + "/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=" + key, function(error, response, body) {
                 if (error) {
                   console.log('Something went wrong with wordnik', error);
                   res.send(error);
@@ -34,7 +34,7 @@ var key = process.env.WORDNIK_API_KEY;
         });
 
         app.post('/api/palindromes', function(req, res) {
-            console.log('INPUT INSIDE SERVER POST!!: ', req.body)
+            console.log('Save User Entry: ', req.body)
             var userEntry = new Palindrome({
                 name: req.body.entry,
                 lintedName: req.body.lintedEntry
