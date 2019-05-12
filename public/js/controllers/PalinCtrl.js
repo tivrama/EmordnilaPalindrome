@@ -94,7 +94,7 @@ angular.module('PalinCtrl', []).controller('PalinController', function($scope, $
       Palindrome.checkWords({word: list[word]}).then(function(result) {
         console.log(result.data);
         word++;
-        if (!result.data.examples) {
+        if (result.data.length < 1) {
           checker = false;
           loop.break();
         }
